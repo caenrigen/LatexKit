@@ -12,9 +12,6 @@ function onOpen(e){
   .addSeparator()
   .addItem('Export Data', 'menuExportData')
   .addItem('Export All Data', 'menuExportAllData')
- // .addSeparator()
- // .addItem('Experiencia', 'open_mySheet')
-//  .addItem('Create Settings', 'createSettingsSheet')
   .addToUi();
 }
 
