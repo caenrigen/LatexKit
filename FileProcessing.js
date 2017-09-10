@@ -1,6 +1,6 @@
 function getFolderInFolder(parentFolder,childFolderName){
 //  Gets a folder inside a folder
-//  Creates the folder if does not exit
+//  Creates the folder if it does not exit
   var childFolder = parentFolder.getFoldersByName(childFolderName);
   if(childFolder.hasNext()){
     childFolder = childFolder.next();
@@ -8,12 +8,10 @@ function getFolderInFolder(parentFolder,childFolderName){
   return childFolder;
 }
 
-function getFolder(path){
-//  Gets a folder object from Drive specified by path in UNIX style
-  var foldersNames = path.split('/');
+function getFolder(pathStr){
+//  Gets a folder object from Drive specified by 'pathStr' in UNIX style
+  var foldersNames = pathStr.split('/');
   var i=0;
-//  Check if there is at list one '/'
-  if(foldersNames.length < 2) return -1;
 //  Spreadsheet file folder
   if(foldersNames[0] === '.'){
    var folder = DriveApp.getFileById(SpreadsheetApp.getActiveSpreadsheet().getId()).getParents().next();
@@ -26,11 +24,11 @@ function getFolder(path){
       var folder = folder.getParents().next();
     };
   }
-//  If '/' is the first char in 'path' get root folder
-  else if(foldersNames[0] === ''){
+//  If '/' is the first char in 'pathStr' get root folder
+  else if(foldersNames[0] === '' && pathStr != ''){ // and exclude empty 'pathStr'
     var folder = DriveApp.getRootFolder();
-  }else return -1;
-//  Go through any other folders
+  }else return "Can not parse pathStr: "+pathStr;
+//  Go through any other folders (creates them if they do not exist)
   for(;i<foldersNames.length && foldersNames[i] !== '';i++){
     folder = getFolderInFolder(folder,foldersNames[i]);
   };
@@ -51,7 +49,7 @@ function saveDataToFile(folder, fileName, contents){
 }
 
 function createTextFile(text){
-//  Creating file with "text" with filename from user input using saveDataToFile
+//  Creating file with "text" with filename from user input using saveDataToFile(...)
   var ui = SpreadsheetApp.getUi();
   var response = ui.prompt('Enter output filepath (including filename and extension):',
                            'e.g. \"./MyFolder/MyTable.tex\"\n This will overwrite any existing file with the same name and on the same folder!\nNew folders will be created if non exist.',
