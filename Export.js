@@ -19,7 +19,7 @@ function alertExportToFile(str)
 {
   var ui = SpreadsheetApp.getUi();
   var response = ui.alert('Export to file?', str, ui.ButtonSet.YES_NO);
-  if (response === ui.Button.YES) createTextFile(str);
+  if (response === ui.Button.YES) exportTextToFile(str);
 }
 
 function getFullA1Notation(range){
