@@ -53,7 +53,7 @@ var getDefaultSettings = function(){
     ];},
     getGeneralDefaults : function(){return [
       ['Tabular Named Ranges Identifier:','.tab','For latest updates, feature requests and feedback please visit:'],
-      ['Data Named Ranges Identifier:','.dat','https://www.facebook.com/latexkit/'],
+      ['Data Named Ranges Identifier:','.dat','https://www.facebook.com/latexkit/ and github.com/caenrigen/LatexKit'],
       ['Use Settings Sheet for Single Export:',true]
     ];},
     getTabsHeader : function(){return [
