@@ -53,8 +53,8 @@ var getDefaultSettings = function(){
     ];},
     getGeneralDefaults : function(){return [
       ['Tabular Named Ranges Identifier:','.tab','For latest updates, feature requests and feedback please visit:'],
-      ['Data Named Ranges Identifier:','.dat','https://www.facebook.com/latexkit/ and github.com/caenrigen/LatexKit'],
-      ['Use Settings Sheet for Single Export:',true]
+      ['Data Named Ranges Identifier:','.dat','facebook.com/latexkit/'],
+      ['Use Settings Sheet for Single Export:',true, 'github.com/caenrigen/LatexKit']
     ];},
     getTabsHeader : function(){return [
     ['TABS'],
@@ -125,7 +125,7 @@ function createSettingsSheet(){
                           ).rectangulateMatrix('');
 //  Copy to SettingsSheet
   sh.getRange(1,1,settings.length,settings[0].length).setValues(settings);
-  sh.autoResizeColumn(1).getRange('C1:F3').mergeAcross();
+  sh.autoResizeColumn(1).getRange('C1:F4').mergeAcross();
   return sh;
 }
 
