@@ -54,12 +54,29 @@ function updateSettingsSheet(){
     };
   var settings = getSettingsFromSheet(settingsSh);
   var general = settings.getGeneral();
+  var generalSettings = getGeneralSettingsFromArray(general);
+// Version check
+  if (generalSettings.getVersion() !== getDevSettings().getAppVersion()) {
+    var oldSettingsSh = settingsSh.setName(settingsSh.getName()+'_old');
+    settingsSh = createSettingsSheet();
+    // Reset vars from new settings sheet
+    var settings = getSettingsFromSheet(settingsSh);
+    var general = settings.getGeneral();
+    var generalSettings = getGeneralSettingsFromArray(general);
+    // Ask to remove old one
+    var ui = SpreadsheetApp.getUi();
+    var response = ui.alert('Version check error', 'The exiting settings sheet seemed outated or incomplete. \
+It was renamed and a new one created.\nWould you like to delete the old settings sheet?', ui.ButtonSet.YES_NO);
+    if (response === ui.Button.YES) {
+        ss.deleteSheet(oldSettingsSh);
+    };
+  }
+
   var tabs = settings.getTabs();
   var data = settings.getData();
   var tabDef = settings.getTabUserDefault();
   var datumDef = settings.getDatumUserDefault();
   
-  var generalSettings = getGeneralSettingsFromArray(general);
 // Get named ranges' names
   var tabsNamedRangesNames = getNamedRangesNames(ss,generalSettings.getTabsIdentifier());
   var dataNamedRangesNames = getNamedRangesNames(ss,generalSettings.getDataIdentifier());
