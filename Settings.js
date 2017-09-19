@@ -1,123 +1,8 @@
-var getDevSettings = function(){
-  return {
-    getAppName:           function(){return 'LatexKit'},
-    getSettingsSheetName: function(){return 'LatexKitSettings'},
-    getErrorColumnTag:    function(){return 'err'},
-    getDataColSeparators: function(){return {space:' ',tab:'\t',enter:'\r\n',LF:'\n',CR:'\r'}}
-  };
-};
-
-var getNotes = function(){
-    return {
-    getGeneralHeaderNotes: function(){return [
-      ['General Settings']
-    ];},
-    getGeneralDefaultsNotes : function(){return [
-      ['Named Ranges that identify ranges to be exported as Latex tabular should end like this.\n\nPossible values:\n.<Any string>\n\nNote: The dot, ".", is imperative!'],
-      ['Named Ranges that identify ranges to be exported as Data text files should end like this.\n\nPossible values:\n.<Any string>\n\nNote: The dot, ".", is imperative!'],
-      ['When exporting a single tabular or data use the user settings if the selected range matches any of the Named Ranges in the Settings Sheet.\nThis may slow down the export so you can disable it here.\n\nPossible values:\nTRUE - Use user settings when available.\nFALSE - Just export using default settings and prompt for output file path.']
-    ];},
-    getTabsHeaderNotes : function(){return [
-    ['Tabular Settings for each range to be exported as Latex tabular.'],
-      [null,
-       'UNIX like folder path in your Drive.\n\nValid paths (comarination may be used):\n/ - Drive root\n./ - This spreadsheet folder\n\../ - Parent folder of this spreadsheet folder\n\nNote: new folders are created if do not exist.',
-       'Output text file extension.\n\nHint: using \".txt\" makes it possible to open the file directly in the Drive.',
-       TEMPLATE_NOTE(),
-       OPTION_NOTE(),
-       BIGSTRUT_NOTE()
-      ]
-    ];},
-    getTabDefaultNotes : function(){return [
-      ['This is the default settings for a tabular.\n\nEach new Named Range will assume this values.']
-    ];},
-    getDataHeaderNotes : function(){return[
-    ['Tabular Settings for each range to be exported as Data text file.'],
-      [null,
-       'UNIX like folder path in your Drive.\n\nValid paths (comarination may be used):\n/ - Drive root\n./ - This spreadsheet folder\n\../ - Parent folder of this spreadsheet folder\n\nNote: new folders are created if do not exist.',
-       'Output text file extension.\n\nHint: using \".txt\" makes it possible to open the file directly in the Drive.',
-       'Choose to export with full numbers precision or just the displayed values.\n\nPossible values:\nTRUE\nFALSE.',
-       'The character(s) used as data columns separator.\n\nPossible values:\nspace\ntab - a.k.a. \"\\t\"\nenter - a.k.a. "\\r\\n\"\nLF - a.k.a. \"\\n\"\nCR - a.k.a. \"\\r\"\n<Any string>',
-       'Optionally swamp or omit columns in the corresponding range.\n\nPossible values:\nFALSE - do nothing\ncX[cY...] - e.g. \"c1c3c1c4\" will only output columns 1,3,1 and 4 in this order. Column counting in the Named Range starts with \'1\'.'
-      ]
-    ];},
-    getDatumDefaultNotes : function(){return [
-      ['This is the default settings for a Data.\nEach new Named Range will assume this values.']
-    ];}
-  };
-};
-
-var getDefaultSettings = function(){
-  return {
-    getGeneralHeader: function(){return [
-      ['GENERAL','','Created By: Victor Negîrneac & Daniel Hachmeister']
-    ];},
-    getGeneralDefaults : function(){return [
-      ['Tabular Named Ranges Identifier:','.tab','For latest updates, feature requests and feedback please visit:'],
-      ['Data Named Ranges Identifier:','.dat','facebook.com/latexkit/'],
-      ['Use Settings Sheet for Single Export:',true, 'github.com/caenrigen/LatexKit']
-    ];},
-    getTabsHeader : function(){return [
-    ['TABS'],
-      ['Range Name:','Folder:','Extension:','Template:','Option:','Bigstrut:']
-    ];},
-    // Note that this default is not an array of arrays
-    // This makes it more convenient for most calls
-    getTabDefault : function(){return ['default','./tabs','.tex',false,false,false];},
-    getDataHeader : function(){return[
-    ['DATA'],
-      ['Range Name:','Folder:','Extension:','Full Precision:','Separator:','Column Swap:']
-    ];},
-    // Note that this default is not an array of arrays
-    // This makes it more convenient for most calls
-    getDatumDefault : function(){return ['default','./data','.txt',true,'tab',false];}
-  };
-};
-
-// Constructors for getting settings from an array
-// Every constructor returns an object containing the functions that return a specific element from the array
-var getGeneralSettingsFromArray = function (genSettings){
-  return {
-    getTabsIdentifier: function(){return genSettings[0][1];},
-    getDataIdentifier: function(){return genSettings[1][1];},
-    getUseSettingForSingleExport: function(){return genSettings[2][1];}
-  }
-};
-var getTabSettingsFromArray = function (tabSettings){
-  return {
-    getRangeName:  function(){return tabSettings[0];},
-    getFolderPath: function(){return tabSettings[1];},
-    getExtention:  function(){return tabSettings[2];},
-    getTemplate:   function(){return tabSettings[3];},
-    getOptions:    function(){return tabSettings[4];},
-    getBigstrut:   function(){return tabSettings[5];},
-//    getSColumns:   function(){return tabSettings[6];}
-  };
-};
-var getDatumSettingsFromArray = function (datumSettings){
-  return {
-    getRangeName:     function(){return datumSettings[0];},
-    getFolderPath:    function(){return datumSettings[1];},
-    getExtention:     function(){return tabSettings[2];},
-    getFullPrecision: function(){return datumSettings[3];},
-    getSep:           function(){return datumSettings[4];},
-    getColumnSwap:    function(){return datumSettings[5];}
-  };
-};
-var getSettingsFromArray = function (array){
-  return {
-    getRangeName:     function(){return array[0];},
-    getFolderPath:    function(){return array[1];},
-    getExtention:     function(){return array[2];}
-  };
-};
-
-//  ===========================================================================
 function createSettingsSheet(){
   var sh = SpreadsheetApp.getActiveSpreadsheet().insertSheet(getDevSettings().getSettingsSheetName());
   var defSettings = getDefaultSettings();
 //  Join all default settings arrays
-  var settings = [].concat(defSettings.getGeneralHeader(),
-                           defSettings.getGeneralDefaults(),
+  var settings = [].concat(defSettings.getGeneralDefaults(),
                            defSettings.getTabsHeader(),
                            [defSettings.getTabDefault()],
                            defSettings.getDataHeader(),
@@ -133,16 +18,18 @@ function getSettingsFromSheet(settingsSh){
 //  Get setting from settings sheet
   var values = settingsSh.getDataRange().getValues();
   var defSettings = getDefaultSettings();
+  var tabsSep = defSettings.getTabsHeader()[0][0];
+  var dataSep = defSettings.getDataHeader()[0][0];
   var generalSettings = [];
   var tabsSettings = [];
   var dataSettings = [];
 //  Fill each setting group
 //  Stop when finding a separator or the range ends
-  for(var i=1;i<values.length && values[i][0] !== defSettings.getTabsHeader()[0][0];i++){
+  for(var i=0;i<values.length && values[i][0] !== tabsSep;i++){
     generalSettings.push(values[i]);
   };
   var tabUserDefaultSettings = values[i+2];
-  for(i+=3;i<values.length && values[i][0] !== defSettings.getDataHeader()[0][0];i++){
+  for(i+=3;i<values.length && values[i][0] !== dataSep;i++){
     tabsSettings.push(values[i]);
   };
   var datumUserDefaultSettings = values[i+2];
@@ -189,8 +76,7 @@ function updateSettingsSheet(){
   data = data.sort(itemsCompare);
 //  Create output values
   var defSettings = getDefaultSettings();
-  var output = [].concat(defSettings.getGeneralHeader(),
-                         general,
+  var output = [].concat(general,
                          defSettings.getTabsHeader(),
                          [tabDef],
                          tabs,
@@ -220,8 +106,7 @@ function updateSettingsSheet(){
                                    -notes.getDataHeaderNotes().length
                                    -notes.getDatumDefaultNotes().length,1,null);
 //    Create notes and make a rectangular matrix
-    var newNotes = [].concat(notes.getGeneralHeaderNotes(),
-                          notes.getGeneralDefaultsNotes(),
+    var newNotes = [].concat(notes.getGeneralDefaultsNotes(),
                           notes.getTabsHeaderNotes(),
                           notes.getTabDefaultNotes(),
                           tabsBlankNotes,
