@@ -9,7 +9,7 @@ There are two main reasons for you to want this:
 * You are concerned about your Google Drive's privacy (a.k.a. you don't trust us)
 * You want to contribute and you need to have a way of running/testing the code
 
-First of all you should to get familiar with Google Apps Script, e.g. create a simple stand alone script for Google Sheets and run it using the IDE provided by Google. Beside that you should get into the basics of git and GitHub (or other equivalent services).
+First of all you should to get familiar with Google Apps Script, e.g. create a simple stand alone script for Google Sheets and run it using the IDE provided by Google. Beside that, you should get into the basics of git and GitHub (or other equivalent services).
 
 As you will probably discover, Google IDE is not very useful when it comes to versioning and collaborating even though you will still use it for debugging (at least). Therefore the idea is to have the code on your machine and edit/version it using whatever you want and then push the code back to your Apps Script project in your Drive in order to use/test/publish it. For this task there are some tools (that relay on Google Apps Script API):
 
@@ -18,7 +18,7 @@ As you will probably discover, Google IDE is not very useful when it comes to ve
 * [python-gas-cli] - python (not tested)
 
 By the time you set up one of those tools you should be ready (and know how) to run your own copy of LatexKit. Have fun!
-This instruction may not be very clear so that if you have any dificulties contact us, we will be happy to help you!
+This instructions may not be very clear, if you have any dificulties contact us, we will be happy to help you!
 
 ## Useful resources
 * [Advanced Development Process with Apps Script]
