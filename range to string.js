@@ -17,7 +17,7 @@ function range_to_string(spec){
   // number   value:    value stored in obj.
   // number   rowSpan:  num. of rows spanned
   // number   colSpan:  num. of columns spanned
-  var matrix=create_matrix(range);
+  var matrix=create_matrix(spec);
   
   // adds a property to the Cell objs. (string errValue)
   // errValue holds the uncertainty of a given value as displayed in the sheet
