@@ -1,4 +1,3 @@
-
 //Creates and returns a cell object
 function cell(spec)
 {
@@ -12,14 +11,37 @@ function cell(spec)
 }
 
 //Cria uma matriz das estruturas Cell e guarda lá os valores do range
-function create_matrix(range)
+function create_matrix(spec)
 {
+  var range=spec.range;
+  var settingsArray=spec.settingsArray;
+  
+  // This block of code prepares a regular expression
+  // based on a user defined set of characters
+  // for escaping special characters in Latex
+  
+  // Get all characters user wants to escape
+  var escapeChars=getTabSettingsFromArray(settingsArray).getEscapeChars();
+  
+  // The \ ^ - ] characters are special chars inside square braces
+  // so they must be precided with \ to be used inside a character class 
+  escapeChars = escapeChars.replace('\\', '\\\\');
+  escapeChars = escapeChars.replace('\^', '\\\^');
+  escapeChars = escapeChars.replace('\-', '\\\-');
+  escapeChars = escapeChars.replace('\]', '\\\]');
+  
+  // This line of code does the same as the four above but is harder do read :)
+  //escapeChars = escapeChars.replace (/[\^\-\]\\]/g, '\\$&');
+  
+  // Create a regular expression for escaping user defined characters
+  var myRe = new RegExp('\['+escapeChars+'\]', 'g');
+    
   // matriz a retornar no final da funcao
   var matrix = []; 
   // variavel local para ter os valores que estao no range
   var range_value  = range.getValues();
   var range_dvalue = range.getDisplayValues();
-
+  
   // aumentar a dimensao da matriz para 2 dimensoes 
   var j,i;
   for ( i = 0 ; i < range_value.length; i++) 
@@ -28,7 +50,10 @@ function create_matrix(range)
     
     // e guardar os valores no elemento Cell.value definir por defeito os Spans para 1
     for ( j = 0 ; j < range_value[i].length; j++) 
-      matrix[i][j] = cell({dvalue: range_dvalue[i][j], value: range_value[i][j], rowSpan: 1, colSpan: 1});
+      matrix[i][j] = cell({dvalue: range_dvalue[i][j].replace(myRe, '\\$&'), //dvalue has user defined chars escaped 
+                           value: range_value[i][j], 
+                           rowSpan: 1, 
+                           colSpan: 1});
   }
     
 
@@ -59,6 +84,7 @@ function create_matrix(range)
       matrix[row][col+m].isHidden=true;
     
   }
+  
   
   return matrix;
 }
