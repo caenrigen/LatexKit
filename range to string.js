@@ -35,12 +35,10 @@ function range_to_string(spec){
   // to match the sizes of pvalue's on the same columns
   add_columnSeparator({matrix: matrix, colFeats: colFeats});
   
-  
   if(tabFeats.manual)
     return create_manual_string({range: range, matrix: matrix, colFeats: colFeats});
   
   // create the printable string 
   // according to column features and row features of the table
   return create_string({matrix: matrix, colFeats: colFeats, rowFeats: rowFeats});
-   
 }

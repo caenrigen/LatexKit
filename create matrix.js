@@ -1,23 +1,36 @@
+function escapeCharsReplacer(escapeChar){ 
 // This function is called by method string.replace() to correctly escape LaTex characters
-function myReplacer(match){
-  
-  // These chars are escaped prepending a backslash
- if (match=="&" || match=="%" || match=="$" || match=="#" || match=="_" || match =="{" || match =="}")
-   return ("\\"+match);
-   
+	var escapeCharsDict = {
+	// This distionary contains the substitutions to be performed
+	 '&':'\\&',
+	 '%':'\\%',
+	 '$':'\\$',
+	 '#':'\\#',
+	 '_':'\\_',
+	 '{':'\\{',
+	 '}':'\\}',
+	 '~':'\\textasciitilde',
+	 '^':'\\textasciicircum',
+	 '\\':'\\textbackslash'
+	};
+	return escapeCharsDict.hasOwnProperty(escapeChar)?escapeCharsDict[escapeChar]:escapeChar;
+// These chars are escaped prepending a backslash
+//  if (match=="&" || match=="%" || match=="$" || match=="#" || match=="_" || match =="{" || match =="}")
+//    return ("\\"+match);
+//    
   // These chars are escaped by using the following macros
-  else if(match=="~")
-    return "\\textasciitilde ";
+//   else if(match=="~")
+//     return "\\textasciitilde ";
   
-  else if(match=="^")
-    return "\\textasciicircum ";
+//   else if(match=="^")
+//     return "\\textasciicircum ";
   
-  else if(match=="\\")
-    return "\\textbackslash ";
+//   else if(match=="\\")
+//     return "\\textbackslash ";
   
   // If a character doesn't need any special treatment in LaTex
-  else
-    return match;
+//   else
+//     return match;
 }
 
 
@@ -57,7 +70,7 @@ function create_matrix(spec)
   //escapeChars = escapeChars.replace (/[\^\-\]\\]/g, '\\$&');
   
   // Create a regular expression for escaping user defined characters
-  var myRe = new RegExp('\['+escapeChars+'\]', 'g');
+  var escapeCharsReg = new RegExp('\['+escapeChars+'\]', 'g');
     
   // matriz a retornar no final da funcao
   var matrix = []; 
@@ -73,7 +86,7 @@ function create_matrix(spec)
     
     // e guardar os valores no elemento Cell.value definir por defeito os Spans para 1
     for ( j = 0 ; j < range_value[i].length; j++) 
-      matrix[i][j] = cell({dvalue: range_dvalue[i][j].replace(myRe,myReplacer), //dvalue has user defined chars escaped 
+      matrix[i][j] = cell({dvalue: range_dvalue[i][j].replace(escapeCharsReg,escapeCharsReplacer), //dvalue has user defined chars escaped 
                            value: range_value[i][j], 
                            rowSpan: 1, 
                            colSpan: 1});
