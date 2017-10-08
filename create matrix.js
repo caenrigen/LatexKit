@@ -1,3 +1,26 @@
+// This function is called by method string.replace() to correctly escape LaTex characters
+function myReplacer(match){
+  
+  // These chars are escaped prepending a backslash
+ if (match=="&" || match=="%" || match=="$" || match=="#" || match=="_" || match =="{" || match =="}")
+   return ("\\"+match);
+   
+  // These chars are escaped by using the following macros
+  else if(match=="~")
+    return "\\textasciitilde ";
+  
+  else if(match=="^")
+    return "\\textasciicircum ";
+  
+  else if(match=="\\")
+    return "\\textbackslash ";
+  
+  // If a character doesn't need any special treatment in LaTex
+  else
+    return match;
+}
+
+
 //Creates and returns a cell object
 function cell(spec)
 {
@@ -50,7 +73,7 @@ function create_matrix(spec)
     
     // e guardar os valores no elemento Cell.value definir por defeito os Spans para 1
     for ( j = 0 ; j < range_value[i].length; j++) 
-      matrix[i][j] = cell({dvalue: range_dvalue[i][j].replace(myRe, '\\$&'), //dvalue has user defined chars escaped 
+      matrix[i][j] = cell({dvalue: range_dvalue[i][j].replace(myRe,myReplacer), //dvalue has user defined chars escaped 
                            value: range_value[i][j], 
                            rowSpan: 1, 
                            colSpan: 1});
