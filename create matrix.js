@@ -1,3 +1,4 @@
+// This file contains comments in portuguese to be translated someday
 function escapeCharsReplacer(escapeChar){ 
 // This function is called by method string.replace() to correctly escape LaTex characters
 	var escapeCharsDict = {
@@ -14,30 +15,10 @@ function escapeCharsReplacer(escapeChar){
 	 '\\':'\\textbackslash'
 	};
 	return escapeCharsDict.hasOwnProperty(escapeChar)?escapeCharsDict[escapeChar]:escapeChar;
-// These chars are escaped prepending a backslash
-//  if (match=="&" || match=="%" || match=="$" || match=="#" || match=="_" || match =="{" || match =="}")
-//    return ("\\"+match);
-//    
-  // These chars are escaped by using the following macros
-//   else if(match=="~")
-//     return "\\textasciitilde ";
-  
-//   else if(match=="^")
-//     return "\\textasciicircum ";
-  
-//   else if(match=="\\")
-//     return "\\textbackslash ";
-  
-  // If a character doesn't need any special treatment in LaTex
-//   else
-//     return match;
 }
 
-
 //Creates and returns a cell object
-function cell(spec)
-{
-  
+function cell(spec){
   var that={dvalue  : spec.dvalue,
             value   : spec.value,
             rowSpan : spec.rowSpan,
@@ -61,13 +42,12 @@ function create_matrix(spec)
   
   // The \ ^ - ] characters are special chars inside square braces
   // so they must be precided with \ to be used inside a character class 
-  escapeChars = escapeChars.replace('\\', '\\\\');
-  escapeChars = escapeChars.replace('\^', '\\\^');
-  escapeChars = escapeChars.replace('\-', '\\\-');
-  escapeChars = escapeChars.replace('\]', '\\\]');
-  
-  // This line of code does the same as the four above but is harder do read :)
-  //escapeChars = escapeChars.replace (/[\^\-\]\\]/g, '\\$&');
+  // This line of code does the same as the four below  but is harder do read :)
+  escapeChars = escapeChars.replace (/[\^\-\]\\]/g, '\\$&');
+//  escapeChars = escapeChars.replace('\\', '\\\\');
+//  escapeChars = escapeChars.replace('\^', '\\\^');
+//  escapeChars = escapeChars.replace('\-', '\\\-');
+//  escapeChars = escapeChars.replace('\]', '\\\]');
   
   // Create a regular expression for escaping user defined characters
   var escapeCharsReg = new RegExp('\['+escapeChars+'\]', 'g');
@@ -80,18 +60,33 @@ function create_matrix(spec)
   
   // aumentar a dimensao da matriz para 2 dimensoes 
   var j,i;
-  for ( i = 0 ; i < range_value.length; i++) 
-  {
+  // Checking here if there are any special chars to be escaped avoides running 
+  // a search in each cell
+  if(escapeChars===''){
+  Logger.log('No escape chars!\n');
+  for ( i = 0 ; i < range_value.length; i++){
     matrix[i] = [];
     
-    // e guardar os valores no elemento Cell.value definir por defeito os Spans para 1
+    // Save values in each Cell and define default spans to 1
     for ( j = 0 ; j < range_value[i].length; j++) 
-      matrix[i][j] = cell({dvalue: range_dvalue[i][j].replace(escapeCharsReg,escapeCharsReplacer), //dvalue has user defined chars escaped 
+      matrix[i][j] = cell({dvalue: range_dvalue[i][j],
                            value: range_value[i][j], 
                            rowSpan: 1, 
                            colSpan: 1});
   }
+  }else{
+  for ( i = 0 ; i < range_value.length; i++){
+    matrix[i] = [];
     
+    // Save values in each Cell and define default spans to 1
+    for ( j = 0 ; j < range_value[i].length; j++) 
+      matrix[i][j] = cell({ //dvalue has user defined chars escaped 
+                           dvalue: range_dvalue[i][j].replace(escapeCharsReg,escapeCharsReplacer),
+                           value: range_value[i][j], 
+                           rowSpan: 1, 
+                           colSpan: 1});
+  }
+  }
 
  //Vetor de MergedRanges
   var mergedRanges = range.getMergedRanges();
@@ -120,7 +115,5 @@ function create_matrix(spec)
       matrix[row][col+m].isHidden=true;
     
   }
-  
-  
   return matrix;
 }
