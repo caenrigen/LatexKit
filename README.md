@@ -25,6 +25,9 @@ There are some comments that are in portuguese, for historical reasons :P. We wi
 ## Useful resources
 * [Advanced Development Process with Apps Script]
 
+# To Do (ASAP):
+* Verify the Apps Script Project in the Google Cloud Platform to avoid the display of an “unverified app” warning to users. This is required because our project uses sensitive Google APIs. It's good that google is improving security but is going to be a bit of a headache for non-full-time developers like us :( Sorry for this guys.
+
 [Google Sheets Add-on Store]: https://chrome.google.com/webstore/detail/latexkit/piadpbgaacpbaicjilhfebbfgofomiic?utm_source=permalink
 [Facebook page]: https://www.facebook.com/latexkit/
 [gas]: https://www.npmjs.com/package/google-apps-script
