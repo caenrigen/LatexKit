@@ -1,4 +1,4 @@
-# Privacy Policy
+# LatexKit Privacy Policy
 Ok, this is going to be short!
 
 ## Nitty-gritty
