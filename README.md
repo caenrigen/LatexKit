@@ -1,6 +1,6 @@
 # LatexKit
 LatexKit is a Google Sheets Add-on.
-If you are just looking for latex table generation from Google Spreadsheets, you can install it from the [Google Sheets Add-on Store] or visit our [Facebook page].
+If you are just looking for latex table generation from Google Sheets, you can install it from the [Google Sheets Add-on Store] or visit our [Facebook page].
 
 We hope to have here more information :) in the future. We are new to GitHub and Google Development Tools, therefore it might take some time... but any feedback is already welcome :D
 
@@ -17,6 +17,7 @@ First of all you should to get familiar with Google Apps Script, e.g. create a s
 As you will probably discover, Google IDE is not very useful when it comes to versioning and collaborating even though you will still use it for debugging (at least). Therefore the idea is to have the code on your machine and edit/version it using whatever you want and then push the code back to your Apps Script project in your Drive in order to use/test/publish it. For this task there are some tools (that relay on Google Apps Script API):
 
 * [gas] - node.js (tested and in use for the development of LatexKit)
+* [clasp] - Google has now released it's own tool
 * [gapps] - node.js (not tested)
 * [python-gas-cli] - python (not tested)
 
@@ -30,6 +31,7 @@ There are some comments that are in portuguese, for historical reasons :P. We wi
 
 # To Do (ASAP):
 * Verify the Apps Script Project in the Google Cloud Platform to avoid the display of an “unverified app” warning to users. This is required because our project uses sensitive Google APIs. It's good that google is improving security but is going to be a bit of a headache for non-full-time developers like us :( Sorry for this guys.
+* Status Update: almost done
 
 [Google Sheets Add-on Store]: https://chrome.google.com/webstore/detail/latexkit/piadpbgaacpbaicjilhfebbfgofomiic?utm_source=permalink
 [Facebook page]: https://www.facebook.com/latexkit/
@@ -38,3 +40,4 @@ There are some comments that are in portuguese, for historical reasons :P. We wi
 [python-gas-cli]: https://pypi.python.org/pypi/python-gas-cli/0.0.1
 [Advanced Development Process with Apps Script]: https://developers.googleblog.com/2015/12/advanced-development-process-with-apps.html
 [Privacy Policy]: http://caenrigen.tech/LatexKit/PrivacyPolicy
+[clasp]: https://developers.google.com/apps-script/guides/clasp
