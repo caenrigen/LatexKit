@@ -2,7 +2,10 @@
 LatexKit is a Google Sheets Add-on.
 If you are just looking for latex table generation from Google Spreadsheets, you can install it from the [Google Sheets Add-on Store] or visit our [Facebook page].
 
-Soon we hope to have here more information :). We are new to GitHub and Google Development Tools, therefore it might take some time... but any feedback is already welcome :D
+We hope to have here more information :) in the future. We are new to GitHub and Google Development Tools, therefore it might take some time... but any feedback is already welcome :D
+
+## Privacy Policy
+As required by Google we do have a [Privacy Policy]. Still sceptical? Fork us and run it yourself!
 
 ## How to use this code yourself
 There are two main reasons for you to want this:
@@ -34,3 +37,4 @@ There are some comments that are in portuguese, for historical reasons :P. We wi
 [gapps]: https://www.npmjs.com/package/node-google-apps-script
 [python-gas-cli]: https://pypi.python.org/pypi/python-gas-cli/0.0.1
 [Advanced Development Process with Apps Script]: https://developers.googleblog.com/2015/12/advanced-development-process-with-apps.html
+[Privacy Policy]: http://caenrigen.tech/LatexKit/PrivacyPolicy
