@@ -1,4 +1,4 @@
-# What?
+# LatexKit
 LatexKit is a Google Sheets Add-on.
 If you are just looking for latex table generation from Google Spreadsheets, you can install it from the [Google Sheets Add-on Store] or visit our [Facebook page].
 
