@@ -2,7 +2,7 @@
 LatexKit is a Google Sheets Add-on.
 If you are just looking for latex table generation from Google Spreadsheets, you can install it from the [Google Sheets Add-on Store] or visit our [Facebook page].
 
-Soon we hope to have here more information :). We are new to GitHub, therefore it might take some time... but any feedback is already welcome :D
+Soon we hope to have here more information :). We are new to GitHub and Google Development Tools, therefore it might take some time... but any feedback is already welcome :D
 
 ## How to use this code yourself
 There are two main reasons for you to want this:
