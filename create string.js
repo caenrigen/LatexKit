@@ -1,5 +1,5 @@
 function create_string(spec) {
-    // Get the arguments from object spec
+  // Get the arguments from object spec
   var matrix   = spec.matrix;
   var colFeats = spec.colFeats;
   var rowFeats = spec.rowFeats;
