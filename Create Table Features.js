@@ -6,14 +6,14 @@ function create_tableFeats(spec) {
   
   //***************** COLUMN FEATURES ARRAY CREATION *****************   
     
-  //Vetor de estruturas ColFeat que guarda as caracteristicas de cada coluna
+  // Array of ColFeat structures that saves the characteristics of each column
   var colFeats = [];
                         
   for(var k=0;k<numColumns;k++)
     colFeats[k] = colFeat();
   
-  // Comecar pelo canto de cima direita e ir pela matriz abaixo 
-  // ate encontrar uma referencia a keyword "err", parar quando encontrar
+  // Start at top right corner and go throughout the matrix 
+  // Stop when finding an "err" keyword
   for(k=1;k<numColumns;k++)
     for(var i=0;i<values.length;i++) 
     {
@@ -32,10 +32,10 @@ function create_tableFeats(spec) {
   
   // ***************** ROW FEATURES ARRAY CREATION ********************
   
-  // variavel local para ter os valores que estao no range
+  // Local var for the range's values
   var numRows = range.getNumRows();
       
-  //Vetor de estruturas rowFeat que guarda as caracteristicas de cada coluna
+  // Array of rawFeat structures that saves the characteristics of each column
   var rowFeats = [];
                         
   for(var k=0;k<=numRows;k++)
@@ -55,7 +55,7 @@ function create_tableFeats(spec) {
   
   if(options !== false && typeof options != 'number')
   {
-    SpreadsheetApp.getUi().alert('Warning:\nField \'Options\' is invalid for NamedRange \''+sets.getRangeName+'\'');
+    SpreadsheetApp.getUi().alert('Warning:\nField \'Options\' is invalid for NamedRange \''+sets.getRangeName()+'\'');
     
     return {rowFeats: rowFeats, colFeats: colFeats};
   }
@@ -130,7 +130,7 @@ function create_tableFeats(spec) {
   
   
   // If the code reached this point no template matches were found, warn the user
-  SpreadsheetApp.getUi().alert('Warning:\nInvalid Template for NamedRange'+sets.getRangeName);
+  SpreadsheetApp.getUi().alert('Warning:\nInvalid Template for NamedRange'+sets.getRangeName());
   return {rowFeats: rowFeats, colFeats: colFeats};
 }
 
@@ -150,17 +150,3 @@ function set_bigstrut(rowFeats){
     rowFeats[k].set_bigstrutBot();
   
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
