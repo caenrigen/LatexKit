@@ -29,7 +29,6 @@ function rowFeat()
 //  
 //  that.reset_bigstrutBot = function(){ bigstrutBot = false; }
  
-  
   return that;
 }
 
@@ -52,8 +51,6 @@ function RowFeats(l)
     prefix[k] = "";
     sufix[k]  = "\\\\";
   }
-  
-  
   
   //getters
   that.get_prefix = function(i){return prefix[i];}
@@ -91,65 +88,6 @@ function RowFeats(l)
 //  that.reset_bigstrutTop = function(){ bigstrutTop = false; }
 //  
 //  that.reset_bigstrutBot = function(){ bigstrutBot = false; }
- 
   
   return that;
 }
-
-function test_rowFeats(){
- 
-  var row=rowFeats(4);
-  
-  row.sufix_addToEnd(2,'pila');
-  
-  var pre=row.get_sufix(2);
-  
-  return 0;
-  
-  
-}
-
-//
-//function create_rowFeat(spec)
-//{
-//  var range = spec.range;
-//  var settingsArray = spec.settingsArray;
-//  
-//  var sets = getTabSettingsFromArray(settingsArray);
-//  var options = sets.getOptions();
-//  
-//  // variavel local para ter os valores que estao no range
-//  var values = range.getDisplayValues();
-//  var numRows = range.getNumRows();
-//      
-//  //Vetor de estruturas ColFeat que guarda as caracteristicas de cada coluna
-//  var rowFeats = [];
-//                        
-//  for(var k=0;k<=numRows;k++)
-//    rowFeats[k] = rowFeat();
-//  
-//  var template = sets.getTemplate();
-//  
-//  if(template === 'horizon' && options <= numRows && options>=0){
-//    rowFeats[0].set_hline();
-//    rowFeats[options].set_hline();
-//    rowFeats[numRows].set_hline();
-//    
-//    if(sets.getBigstrut() === true && options != 0 && options!= numRows){
-//      rowFeats[1].set_bigstrutTop();
-//      
-//      rowFeats[options].set_bigstrutBot();
-//      rowFeats[options+1].set_bigstrutTop();
-//      
-//      rowFeats[numRows].set_bigstrutBot();
-//    }
-//  }
-//  
-//  
-//  if(template === 'barcode'){
-//    //handle barcode templatec
-//  
-//  }
-//  
-//  return rowFeats;
-//}
