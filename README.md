@@ -9,7 +9,7 @@ As required by Google we do have a [Privacy Policy]. Still sceptical? Fork us an
 
 ## How to use this code yourself
 There are two main reasons for you to want this:
-* You are concerned about your Google Drive's privacy (a.k.a. you don't trust us)
+* You are concerned about your Google Drive's privacy and do not trust the code we have uploaded in the add-on
 * You want to contribute and you need to have a way of running/testing the code
 
 First of all you should to get familiar with Google Apps Script, e.g. create a simple stand alone script for Google Sheets and run it using the IDE provided by Google. Beside that, you should get into the basics of git and GitHub (or other equivalent services).
@@ -28,10 +28,6 @@ This instructions may not be very clear, if you have any dificulties contact us,
 There are some comments that are in portuguese, for historical reasons :P. We will try to translate them during new develpments, but feel free to put some preasure on us :D (or help us).
 ## Useful resources
 * [Advanced Development Process with Apps Script]
-
-# To Do (ASAP):
-* Verify the Apps Script Project in the Google Cloud Platform to avoid the display of an “unverified app” warning to users. This is required because our project uses sensitive Google APIs. It's good that google is improving security but is going to be a bit of a headache for non-full-time developers like us :( Sorry for this guys.
-* Status Update: almost done
 
 [Google Sheets Add-on Store]: https://chrome.google.com/webstore/detail/latexkit/piadpbgaacpbaicjilhfebbfgofomiic?utm_source=permalink
 [Facebook page]: https://www.facebook.com/latexkit/
