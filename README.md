@@ -9,7 +9,7 @@ As required by Google we do have a [Privacy Policy]. Still sceptical? Fork us an
 
 ## How to use this code yourself
 There are two main reasons for you to want this:
-* You are concerned about your Google Drive's privacy (a.k.a. you don't trust us)
+* You are concerned about your Google Drive's privacy and do not trust the code we have uploaded in the add-on
 * You want to contribute and you need to have a way of running/testing the code
 
 First of all you should to get familiar with Google Apps Script, e.g. create a simple stand alone script for Google Sheets and run it using the IDE provided by Google. Beside that, you should get into the basics of git and GitHub (or other equivalent services).
