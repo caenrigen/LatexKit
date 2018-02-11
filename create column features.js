@@ -39,34 +39,3 @@ function colFeat()
   
   return that;
 }
-//
-//function create_colFeat(range)
-//{
-//  
-//  // variavel local para ter os valores que estao no range
-//  var values = range.getDisplayValues();
-//  var numColumns = range.getNumColumns();
-//  
-//  //Vetor de estruturas ColFeat que guarda as caracteristicas de cada coluna
-//  var colFeats = [];
-//                        
-//  for(var k=0;k<numColumns;k++)
-//    colFeats[k] = colFeat();
-//  
-//  // Comecar pelo canto de cima direita e ir pela matriz abaixo 
-//  // ate encontrar uma referencia a keyword "err", parar quando encontrar
-//  for(k=1;k<numColumns;k++)
-//    for(var i=0;i<values.length;i++) 
-//    {
-//      if(values[i][k] === getDevSettings().getErrorColumnTag())
-//      {
-//        colFeats[k - 1].set_pmError();
-//        break;
-//      }
-//      if(values[i][k] === 'sd')
-//      {
-//        colFeats[k - 1].set_sdError();
-//      }
-//    }
-//  return colFeats;
-//}
