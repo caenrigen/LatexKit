@@ -26,8 +26,7 @@ function cell(spec){
   
   return that;
 }
-
-//Cria uma matriz das estruturas Cell e guarda lá os valores do range
+// Creates a matrix of Cell structures and saves the range values in it
 function create_matrix(spec)
 {
   var range=spec.range;
@@ -52,13 +51,13 @@ function create_matrix(spec)
   // Create a regular expression for escaping user defined characters
   var escapeCharsReg = new RegExp('\['+escapeChars+'\]', 'g');
     
-  // matriz a retornar no final da funcao
+  // The matrix returned at the function end
   var matrix = []; 
-  // variavel local para ter os valores que estao no range
+  // Local var for the values in the range
   var range_value  = range.getValues();
   var range_dvalue = range.getDisplayValues();
   
-  // aumentar a dimensao da matriz para 2 dimensoes 
+  // Increase matrix dimension to 2
   var j,i;
   // Checking here if there are any special chars to be escaped avoides running 
   // a search in each cell
@@ -88,18 +87,18 @@ function create_matrix(spec)
   }
   }
 
- //Vetor de MergedRanges
+ //Array of MergedRanges
   var mergedRanges = range.getMergedRanges();
   
   var numRows,numCols,row,col,k,l,m;
   
-  //Para cada merged range
-  for( k=0;k<mergedRanges.length;k++)
-  { // Numero de linhas e colunas no mergedRange
+  //For each merged range
+  for( k=0;k<mergedRanges.length;k++){
+  	// Number of rows and columns in each merged Range
     numRows = mergedRanges[k].getNumRows();
     numCols = mergedRanges[k].getNumColumns();
     
-    // Posicao do merged range na matriz Cell
+    // Merged range position in the Cell matrix
     row = mergedRanges[k].getRow() - range.getRow();
     col = mergedRanges[k].getColumn() - range.getColumn();
     
