@@ -35,5 +35,5 @@ There are some comments that are in portuguese, for historical reasons :P. We wi
 [gapps]: https://www.npmjs.com/package/node-google-apps-script
 [python-gas-cli]: https://pypi.python.org/pypi/python-gas-cli/0.0.1
 [Advanced Development Process with Apps Script]: https://developers.googleblog.com/2015/12/advanced-development-process-with-apps.html
-[Privacy Policy]: http://caenrigen.tech/LatexKit/PrivacyPolicy
+[Privacy Policy]: http://caenrigen.github.io/LatexKit/PrivacyPolicy
 [clasp]: https://developers.google.com/apps-script/guides/clasp
