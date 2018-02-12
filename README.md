@@ -17,7 +17,7 @@ First of all you should to get familiar with Google Apps Script, e.g. create a s
 As you will probably discover, Google IDE is not very useful when it comes to versioning and collaborating even though you will still use it for debugging (at least). Therefore the idea is to have the code on your machine and edit/version it using whatever you want and then push the code back to your Apps Script project in your Drive in order to use/test/publish it. For this task there are some tools (that relay on Google Apps Script API):
 
 * [gas] - node.js (tested and in use for the development of LatexKit)
-* [clasp] - Google has now released it's own tool
+* [clasp] - Google has released it's own tool (not tested)
 * [gapps] - node.js (not tested)
 * [python-gas-cli] - python (not tested)
 
