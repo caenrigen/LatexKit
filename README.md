@@ -24,8 +24,12 @@ As you will probably discover, Google IDE is not very useful when it comes to ve
 By the time you set up one of those tools you should be ready (and know how) to run your own copy of LatexKit. Have fun!
 This instructions may not be very clear, if you have any dificulties contact us, we will be happy to help you!
 
-## Code comments
-There are some comments that are in portuguese, for historical reasons :P. We will try to translate them during new develpments, but feel free to put some preasure on us :D (or help us).
+## Nice things to develop someday
+* Automatic and manual columns align
+* Automatic table configuration for siunitx latex package
+* Data validation for the LatexKitSettings sheet
+* Automatic table borders when folks from google give us a getBorder method
+
 ## Useful resources
 * [Advanced Development Process with Apps Script]
 
