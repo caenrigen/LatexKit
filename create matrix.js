@@ -62,7 +62,6 @@ function create_matrix(spec)
   // Checking here if there are any special chars to be escaped avoides running 
   // a search in each cell
   if(escapeChars===''){
-  Logger.log('No escape chars!\n');
   for ( i = 0 ; i < range_value.length; i++){
     matrix[i] = [];
     
