@@ -55,14 +55,19 @@ function singleExport(obj){
       if(settingsArray === undefined) settingsArray = settings[obj.defaultUserSettingsArrayGetter]();
     }
   }
-  
-  if(settingsArray === undefined){
-    alertExportToFile(obj.strGenerator({range: activeRange,
-                      settingsArray: getDefaultSettings()[obj.defaultSettingsArrayGetter]()}));
-  }else if(settingsArray[0] === "default"){
-    alertExportToFile(obj.strGenerator({range: activeRange,
-                      settingsArray: settingsArray}));
-  }else{
-    exportGroup([settingsArray],obj.strGenerator);
+  Logger.log(settingsArray);
+  try{ 
+    if(settingsArray === undefined){
+      alertExportToFile(obj.strGenerator({range: activeRange,
+                        settingsArray: getDefaultSettings()[obj.defaultSettingsArrayGetter]()}));
+    }else if(settingsArray[0] === "default"){
+      alertExportToFile(obj.strGenerator({range: activeRange,
+                        settingsArray: settingsArray}));
+    }else{
+      exportGroup([settingsArray],obj.strGenerator);
+    }
+   }catch(e){
+     // Avoid getting an error in Google Project's Console when the user leaves the alert opened
+     ((e.name==="Exception" && e.message==="Timed out waiting for user response") ? console.info(e) : function(){throw(e);}());
   }
 }
