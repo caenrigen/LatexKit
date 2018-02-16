@@ -55,7 +55,6 @@ function singleExport(obj){
       if(settingsArray === undefined) settingsArray = settings[obj.defaultUserSettingsArrayGetter]();
     }
   }
-  Logger.log(settingsArray);
   try{ 
     if(settingsArray === undefined){
       alertExportToFile(obj.strGenerator({range: activeRange,
@@ -66,7 +65,7 @@ function singleExport(obj){
     }else{
       exportGroup([settingsArray],obj.strGenerator);
     }
-   }catch(e){
+  }catch(e){
      // Avoid getting an error in Google Project's Console when the user leaves the alert opened
      ((e.name==="Exception" && e.message==="Timed out waiting for user response") ? console.info(e) : function(){throw(e);}());
   }
