@@ -67,6 +67,6 @@ function singleExport(obj){
     }
   }catch(e){
      // Avoid getting an error in Google Project's Console when the user leaves the alert opened
-     ((e.name==="Exception" && e.message==="Timed out waiting for user response") ? console.info(e) : function(){throw(e);}());
+     e.name==="Exception" ? console.info(e) : function(){throw(e);}();
   }
 }
