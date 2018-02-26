@@ -213,7 +213,8 @@ function menuShowSettingsSheet(){
   var settingsSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(getDevSettings().getSettingsSheetName());
   if(settingsSheet === null){
     var ui = SpreadsheetApp.getUi();
-    var response = ui.alert('Settings sheet was not found! Would you like to create it?', ui.ButtonSet.YES_NO);
+    var response = ui.alert('Settings sheet was not found! Would you like to create it?','Tips:\nThere are notes in the settings \
+sheet that explain how to use it. Hold the mouse over the cells that have a black triangle in the corner to see them!\nThe default values change the behaviour of the menu for \"Make Tabular\" and \"Export Data\"!', ui.ButtonSet.YES_NO);
     if (response === ui.Button.YES){
       updateSettingsSheet();  // Create and update setting sheet
       menuShowSettingsSheet();  // Run this function again in order to activate the sheet

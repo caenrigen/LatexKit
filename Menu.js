@@ -3,16 +3,16 @@
 
 function onOpen(e){
   var ui = SpreadsheetApp.getUi();
+  var menuLabels = getDevSettings().getMenuLabels();
   ui.createMenu('LatexKit')
-  .addItem('Make Tabular', 'menuMakeTabular')
-  .addItem('Export All Tabulars', 'menuExportAllTabs')
+  .addItem(menuLabels['singleTabular'], 'menuMakeTabular')
+  .addItem(menuLabels['allTabular'], 'menuExportAllTabs')
   .addSeparator()
-  .addItem('Show Settings', 'menuShowSettingsSheet')
-  .addItem('Update Settings', 'updateSettingsSheet')
+  .addItem(menuLabels['showSettings'], 'menuShowSettingsSheet')
+  .addItem(menuLabels['updateSettings'], 'updateSettingsSheet')
   .addSeparator()
-  .addItem('Export Data', 'menuExportData')
-  .addItem('Export All Data', 'menuExportAllData')
-  .addItem("getSheet", 'getSheet')
+  .addItem(menuLabels['sigleData'], 'menuExportData')
+  .addItem(menuLabels['allData'], 'menuExportAllData')
   .addToUi();
 }
 
