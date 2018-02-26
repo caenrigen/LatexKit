@@ -12,10 +12,11 @@ function onOpen(e){
   .addSeparator()
   .addItem('Export Data', 'menuExportData')
   .addItem('Export All Data', 'menuExportAllData')
+  .addItem("getSheet", 'getSheet')
   .addToUi();
 }
 
-function onInstall(e) {
+function onInstall(e){
   onOpen(e);
   // Perform additional setup as needed.
 }

@@ -56,8 +56,13 @@ function updateSettingsSheet(){
   var general = settings.getGeneral();
   var generalSettings = getGeneralSettingsFromArray(general);
 // Version check
-  if (generalSettings.getVersion() !== getDevSettings().getAppVersion()) {
-    var oldSettingsSh = settingsSh.setName(settingsSh.getName()+'_old');
+  if (generalSettings.getVersion() !== getDevSettings().getAppVersion()){
+    var settingsShName = settingsSh.getName(),
+        oldName;
+    for(var i=1, oldName = settingsShName +'_old'+i;
+        ss.getSheetByName(oldName) !== null;
+        i++,oldName = settingsShName+'_old'+i){};
+    settingsSh.setName(oldName);
     settingsSh = createSettingsSheet();
     // Reset vars from new settings sheet
     var settings = getSettingsFromSheet(settingsSh);
@@ -65,11 +70,8 @@ function updateSettingsSheet(){
     var generalSettings = getGeneralSettingsFromArray(general);
     // Ask to remove old one
     var ui = SpreadsheetApp.getUi();
-    var response = ui.alert('Version check error', 'The exiting settings sheet seemed outated or incomplete. \
-It was renamed and a new one created.\nWould you like to delete the old settings sheet?', ui.ButtonSet.YES_NO);
-    if (response === ui.Button.YES) {
-        ss.deleteSheet(oldSettingsSh);
-    };
+    ui.alert('Version check error', 'The exiting settings sheet seemed outated or incomplete. \
+It was renamed and a new one created.', ui.ButtonSet.OK);
   }
 
   var tabs = settings.getTabs();

@@ -11,7 +11,7 @@ var getDevSettings = function(){
 var getDefaultSettings = function(){
   return {
     getGeneralDefaults : function(){return [
-      ['LatexKit','v1.1.0','Created By: Victor Negîrneac & Daniel Hachmeister'],
+      ['LatexKit',getDevSettings().getAppVersion(),'Created By: Victor Negîrneac & Daniel Hachmeister'],
       ['Tabular Named Ranges Identifier:','.tab','For latest updates, feature requests and feedback please visit:'],
       ['Data Named Ranges Identifier:','.dat','facebook.com/latexkit/'],
       ['Use Settings Sheet for Single Export:',true, 'http://caenrigen.tech/LatexKit/']
