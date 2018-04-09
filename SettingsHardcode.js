@@ -110,7 +110,7 @@ Grid\n\
      |_|_|_|_|\n\
      |_|_|_|_|\n\
      |_|_|_|_|\n\n\
-Manual\n\nManually control your table by adding a column to the right of a Named Range with the explicit commands to use e.g. (\\hline). Note: If you want the command to appear before the first line, you have to insert it on the row above the your range.',
+Manual\n\n[THE NAMED RANGE MUST NOT INCLUDE ANY CELLS ON LINE 1 OF THE SHEET!]\n\nManually control your table by adding a column to the right of a Named Range with the explicit commands to use (e.g. \\hline). Note: If you want the command to appear before the first line, you have to insert it on the row above your range.',
 
 'Aditional option for each template choosen. Change this value to some integer X to customize the template:\n\n\
 Horizon & Barcode: Add an additional horizontal line below row X\n\n\
