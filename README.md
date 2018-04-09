@@ -28,7 +28,8 @@ This instructions may not be very clear, if you have any dificulties contact us,
 * Automatic and manual columns align
 * Automatic table configuration for siunitx latex package
 * Data validation for the LatexKitSettings sheet
-* Automatic table borders when folks from google give us a getBorder method
+* Automatic table borders when folks from google give us a getBorder method or [working it around] with the Sheets API v4.
+PS Help us reinforce the need of the getBorder method by leaving a comment in the [issue tracker].
 
 ## Useful resources
 * [Advanced Development Process with Apps Script]
@@ -41,3 +42,5 @@ This instructions may not be very clear, if you have any dificulties contact us,
 [Advanced Development Process with Apps Script]: https://developers.googleblog.com/2015/12/advanced-development-process-with-apps.html
 [Privacy Policy]: http://caenrigen.github.io/LatexKit/PrivacyPolicy
 [clasp]: https://developers.google.com/apps-script/guides/clasp
+[working it around]: https://stackoverflow.com/questions/48754286/retrieving-google-spreadsheet-border-style-programaticaly
+[issue tracker]: https://issuetracker.google.com/issues/36760052
