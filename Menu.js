@@ -11,7 +11,7 @@ function onOpen(e){
   .addItem(menuLabels['showSettings'], 'menuShowSettingsSheet')
   .addItem(menuLabels['updateSettings'], 'updateSettingsSheet')
   .addSeparator()
-  .addItem(menuLabels['sigleData'], 'menuExportData')
+  .addItem(menuLabels['singleData'], 'menuExportData')
   .addItem(menuLabels['allData'], 'menuExportAllData')
   .addToUi();
 }

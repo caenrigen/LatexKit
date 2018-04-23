@@ -1,7 +1,7 @@
 var getDevSettings = function(){
   return {
     getAppName:           function(){return 'LatexKit'},
-    getAppVersion:        function(){return 'v1.1.2'},
+    getAppVersion:        function(){return 'v1.1.3'},
     getSettingsSheetName: function(){return 'LatexKitSettings'},
     getErrorColumnTag:    function(){return 'err'},
     getDataColSeparators: function(){return {space:' ',tab:'\t',enter:'\r\n',LF:'\n',CR:'\r'}},
@@ -9,7 +9,7 @@ var getDevSettings = function(){
                                              'allTabular':    'Export All Tabulars',
                                              'showSettings':  'Show Settings',
                                              'updateSettings':'Update Settings',
-                                             'sigleData':     'Export Data',
+                                             'singleData':     'Export Data',
                                              'allData':       'Export All Data'}}
   };
 };
@@ -123,7 +123,7 @@ e.g. to escape all special latex characters "&%$#_{}~^\\".'
       ]
     ];},
     getTabDefaultNotes : function(){return [
-      ['This is the default settings for a tabular.\n\nThey are used when you click \"'+getDevSettings().getMenuLabels['singleTabular']+'\" AND are also copied below for each new Named Range that is added for tabular export.']
+      ['This is the default settings for a tabular.\n\nThey are used when you click \"'+getDevSettings().getMenuLabels()['singleTabular']+'\" AND are also copied below for each new Named Range that is added for tabular export.']
     ];},
     getDataHeaderNotes : function(){return[
     ['Settings for each range to be exported as Data text file.'],
@@ -136,7 +136,7 @@ e.g. to escape all special latex characters "&%$#_{}~^\\".'
       ]
     ];},
     getDatumDefaultNotes : function(){return [
-      ['This is the default settings for a Data.\n\nThey are used when you click \"'+getDevSettings().getMenuLabels['singleData']+'\" AND are also copied below for each new Named Range that is added for data export.']
+      ['This is the default settings for a Data.\n\nThey are used when you click \"'+getDevSettings().getMenuLabels()['singleData']+'\" AND are also copied below for each new Named Range that is added for data export.']
     ];}
   };
 };
