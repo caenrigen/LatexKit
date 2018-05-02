@@ -25,6 +25,7 @@ By the time you set up one of those tools you should be ready (and know how) to 
 This instructions may not be very clear, if you have any dificulties contact us, we will be happy to help you!
 
 ## Nice things to develop someday
+* Create URLs for [overleaf automatic file upload and realtime update] 
 * Automatic and manual columns align
 * Automatic table configuration for siunitx latex package
 * Data validation for the LatexKitSettings sheet
@@ -44,3 +45,4 @@ PS Help us reinforce the need of the getBorder method by leaving a comment in th
 [clasp]: https://developers.google.com/apps-script/guides/clasp
 [working it around]: https://stackoverflow.com/questions/48754286/retrieving-google-spreadsheet-border-style-programaticaly
 [issue tracker]: https://issuetracker.google.com/issues/36760052
+[overleaf automatic file upload and realtime update]: https://www.overleaf.com/help/247-how-can-i-upload-files-from-google-drive
