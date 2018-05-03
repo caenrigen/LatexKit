@@ -25,6 +25,7 @@ By the time you set up one of those tools you should be ready (and know how) to 
 This instructions may not be very clear, if you have any dificulties contact us, we will be happy to help you!
 
 ## Nice things to develop someday
+* Apply Validation rules on Settings Sheet for a more user friendly UI and less errors
 * Create URLs for [overleaf automatic file upload and realtime update] 
 * Automatic and manual columns align
 * Automatic table configuration for siunitx latex package
