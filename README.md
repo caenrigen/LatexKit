@@ -32,6 +32,7 @@ This instructions may not be very clear, if you have any dificulties contact us,
 * Data validation for the LatexKitSettings sheet
 * Automatic table borders when folks from google give us a getBorder method or [working it around] with the Sheets API v4.
 PS Help us reinforce the need of the getBorder method by leaving a comment in the [issue tracker].
+* Automatic line breaks in cells using \makecell\{\}
 
 ## Useful resources
 * [Advanced Development Process with Apps Script]
