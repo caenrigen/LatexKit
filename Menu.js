@@ -13,10 +13,23 @@ function onOpen(e){
   .addSeparator()
   .addItem(menuLabels['singleData'], 'menuExportData')
   .addItem(menuLabels['allData'], 'menuExportAllData')
+  .addSeparator()
+  .addItem('blabla', 'testNew')
   .addToUi();
 }
 
 function onInstall(e){
   onOpen(e);
   // Perform additional setup as needed.
+}
+
+function testNew(){
+  showAnchor('Stackoverflow','https://www.google.com');
+}
+
+function showAnchor(name,url) {
+//  var html = '<html><body><a href="'+url+'" target="blank" onclick="google.script.host.close()">'+name+'</a></body></html>';
+  var html = '<html><body><a href="'+url+'" target="blank">'+name+'</a></body></html>';
+  var ui = HtmlService.createHtmlOutput(html)
+  SpreadsheetApp.getUi().showModelessDialog(ui,"demo");
 }
