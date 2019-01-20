@@ -22,6 +22,9 @@ function onInstall(e){
   onOpen(e);
   // Perform additional setup as needed.
 }
+function test(){
+  Logger.log(getFormsUnlockKeys()["Y8BI1LXKBMJ6RZE8687U"]);
+}
 
 function testNew(){
   showAnchor('Stackoverflow','https://www.google.com');
