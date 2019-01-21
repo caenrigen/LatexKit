@@ -22,8 +22,11 @@ function validateKeyPrompt(funcName){
   if(userProperties.getProperty(myPropertyName) !== 'true'){
     userProperties.setProperty(myPropertyName, 'false');
     var ui = SpreadsheetApp.getUi();
-    var response = ui.prompt('Hello');
-    if(getFormsUnlockKeys()[response.getResponseText()]) userProperties.setProperty(myPropertyName, 'true');
+    var response = ui.prompt('Your unique CODE goes here:');
+    if(getFormsUnlockKeys()[response.getResponseText()]){
+      userProperties.setProperty(myPropertyName, 'true');
+      ui.alert('Code Accepted. Thank you so much!');
+    }
   }
   var funcNames = {
     menuMakeTabularFunc : menuMakeTabular,
@@ -33,29 +36,37 @@ function validateKeyPrompt(funcName){
     menuExportDataFunc : menuExportData,
     menuExportAllDataFunc : menuExportAllData
   };
-  funcNames[funcName]();
+  
+  if(funcNames[funcName]) funcNames[funcName]();
 }
 
 function makeHTMLtext(funcName){
-  return '<!DOCTYPE html>\
+  var href = '<a href="https://goo.gl/forms/a5eweXqgkFmIX8092" target="blank">short Survey (click here)</a>';
+  var button = '<input type="button" value="I have my CODE" onclick="google.script.run.withSuccessHandler().validateKeyPrompt(\''+ funcName +'\')" />';
+  return "<!DOCTYPE html>\
 <html>\
   <head>\
-    <base target="_top">\
+    <base target='_top'>\
   </head>\
   <body>\
-    <a href="https://goo.gl/forms/a5eweXqgkFmIX8092" target="blank">Something</a>\
-    <input type="button" value="OK" onclick="google.script.run.withSuccessHandler().validateKeyPrompt(\''+ funcName +'\')" />\
+   <p>Dear user,</p>\
+<p>We believe that time is our most valuable asset and we hope that our work has saved you a fortune! Today we need your help.</p>\
+<p>On January 28, 2019 our Add-on will stop working due to changes in the Google's infrastructure. Even though these changes are for the best of the ecosystem, it requires additional work from our side in order to comply with the new rules.</p>\
+<p>Therefore, we would like to know how valuable is LatexKit to you. We kindly ask you to take this "+ href +". It takes less than manually creating a table ;). Your feedback is essencial to keep us going.</p>\
+<p>We apologize for interrupting your workflow, it is the only way we have to get in touch with you. By the end of the survey, you will be provided with your unique CODE that will disable this prompt :)</p>\
+<p>Make sure to SAVE it!</p>\
+<p>P.S. Having more positive than negative interactions improves your day-to-day experience. Create some good moments today!</p>\
+<p>"+ button +"</p>\
   </body>\
-</html>'
+</html>"
 }
 
 function showSurveyAlert(funcName){
   if(PropertiesService.getUserProperties().getProperty('LateKitFormV1Filled') !== 'true'){
-    var htmlOutput = HtmlService.createHtmlOutput(makeHTMLtext(funcName));
-    //.setSandboxMode(HtmlService.SandboxMode.IFRAME)
-    //.setWidth(250)
-    //.setHeight(200);
-    SpreadsheetApp.getUi().showModelessDialog(htmlOutput, 'HELP');
+    var htmlOutput = HtmlService.createHtmlOutput(makeHTMLtext(funcName))
+    .setWidth(550)
+    .setHeight(500);
+    SpreadsheetApp.getUi().showModelessDialog(htmlOutput, 'LatexKit needs your help!');
   } else validateKeyPrompt(funcName);
 }
 
