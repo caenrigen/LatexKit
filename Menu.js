@@ -27,7 +27,7 @@ function test(){
 }
 
 function testNew(){
-  showAnchor('Stackoverflow','https://www.google.com');
+  showAnchor('Short Survey','https://goo.gl/forms/a5eweXqgkFmIX8092');
 }
 
 function showAnchor(name,url) {
