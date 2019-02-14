@@ -5,12 +5,18 @@ var getDevSettings = function(){
     getSettingsSheetName: function(){return 'LatexKitSettings'},
     getErrorColumnTag:    function(){return 'err'},
     getDataColSeparators: function(){return {space:' ',tab:'\t',enter:'\r\n',LF:'\n',CR:'\r'}},
+    getFeedbackFormLink:  function(){return 'https://goo.gl/forms/WbqcEpMbYx3VGA2b2'},
+    getFacebookLink:      function(){return 'https://www.facebook.com/latexkit/'},
+    getGitHubLink:        function(){return 'https://github.com/caenrigen/LatexKit'},
+    getMailLink:          function(){return 'mailto:latexkit.dev@gmail.com'},
+    getHomepageLink:      function(){return 'http://caenrigen.tech/LatexKit/'},
     getMenuLabels:        function(){return {'singleTabular': 'Make Tabular',
                                              'allTabular':    'Export All Tabulars',
                                              'showSettings':  'Show Settings',
                                              'updateSettings':'Update Settings',
                                              'singleData':     'Export Data',
-                                             'allData':       'Export All Data'}}
+                                             'allData':       'Export All Data',
+                                             'feedbackForm': 'Send Feedback, pleeeese!'}}
   };
 };
 

@@ -13,6 +13,8 @@ function onOpen(e){
   .addSeparator()
   .addItem(menuLabels['singleData'], 'menuExportData')
   .addItem(menuLabels['allData'], 'menuExportAllData')
+  .addSeparator()
+  .addItem(menuLabels['feedbackForm'], 'showFeedbackDialog')
   .addToUi();
 }
 
