@@ -1,6 +1,7 @@
 # LatexKit Terms of Service (ToS)
 
 Effective: June 18, 2019
+
 Last modified: June 18, 2019
 
 ## Introduction
@@ -26,9 +27,9 @@ The LatexKit team has no control over, and assumes no responsibility for, the co
 We strongly advise you to read the terms and conditions and privacy policies of any third-party web sites or services that you visit.
 
 ## Google Chrome Store
-The use of the Add-ons is subject to [G Suite Marketplace Terms of Service]
-The developer team is subject to the [G Suite Marketplace Application Requirements]
-The add-ons are examined to insure they meet Google's guidelines, including guidelines for safeguarding user data, before they are publicly available. For more information, see the [Add-on review] 
+The use of the Add-ons is subject to [G Suite Marketplace Terms of Service].
+The developer team is subject to the [G Suite Marketplace Application Requirements].
+The add-ons are examined to insure they meet Google's guidelines, including guidelines for safeguarding user data, before they are publicly available. For more information, see the [Add-on review].
 
 ## Disclaimer
 We do not guarantee, or warrant that your use of the Service will be uninterrupted or error-free, and you agree that we may remove the Add-on service for indefinite time periods, or discontinue the service at any time, without notice to you.
@@ -69,4 +70,4 @@ If you have any questions about these Terms, please contact us.
 [Add-on review]: https://developers.google.com/gsuite/add-ons/concepts/addon-review
 [G Suite Marketplace Terms of Service]: https://gsuite.google.com/terms/marketplace/tos.html?hl=en
 [G Suite Marketplace Application Requirements]: https://developers.google.com/gsuite/marketplace/requirements
-[caenrigen.tech/LatexKit/ToS]: caenrigen.tech/LatexKit/ToS
+[caenrigen.tech/LatexKit/ToS]: http://caenrigen.tech/LatexKit/ToS
