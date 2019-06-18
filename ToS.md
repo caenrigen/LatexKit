@@ -28,7 +28,9 @@ We strongly advise you to read the terms and conditions and privacy policies of 
 
 ## Google Chrome Store
 The use of the Add-ons is subject to [G Suite Marketplace Terms of Service].
+
 The developer team is subject to the [G Suite Marketplace Application Requirements].
+
 The add-ons are examined to insure they meet Google's guidelines, including guidelines for safeguarding user data, before they are publicly available. For more information, see the [Add-on review].
 
 ## Disclaimer
@@ -37,7 +39,11 @@ We do not guarantee, or warrant that your use of the Service will be uninterrupt
 You expressly agree that your use of, or inability to use, the Service is at your own risk. This Add-on and the services delivered to you through this Add-on are provided "as is" and "as available" for your use, without warranties of any kind, either expressed or implied (unless you are covered by a jurisdiction that does not allow the exclusion of implied warranties).
 
 ## Digital information loss
-The Service can create, permanently modify and permanently remove files (and folders) inside the user's Google Drive on behalf of the user when so requested by the user through the use of the Service. The files and/or folders are modified and/or removed based on the file's and folder's names indicated by the user. As an end user of the Service, you expressly agree that you are responsible for any loss of information that you might incur through the use of the Service, including the following, but not limited to, exemplary cases: 1) You modify a file previously created through the Service and afterwards request an update of the same file through the Service. 2) You name a file with the exact same name previously designated as an output file of the Service and afterwards you request the creation of an output file with that name that will replace your original file, on your behalf, as requested.
+The Service can create, permanently modify and permanently remove files (and folders) inside the user's Google Drive on behalf of the user when so requested by the user through the use of the Service. The files and/or folders are modified and/or removed based on the file's and folder's names indicated by the user. As an end user of the Service, you expressly agree that you are responsible for any loss of information that you might incur through the use of the Service, including the following, but not limited to, exemplary cases:
+
+1) You modify a file previously created through the Service and afterwards request an update of the same file through the Service.
+
+2) You name a file with the exact same name previously designated as an output file of the Service and afterwards you request the creation of an output file with that name that will replace your original file, on your behalf, as requested.
 
 ## Software updates
 The Add-on which you use may automatically install updates from time to time. These updates are designed to improve, enhance and further develop the Services and may take the form of bug fixes, enhanced functions, new software modules and completely new versions with different features. You agree to receive such updates and permit the LatexKit team to deliver them to you as part of your use of the Services.
