@@ -38,6 +38,7 @@ PS Help us reinforce the need of the getBorder method by leaving a comment in th
 * [Advanced Development Process with Apps Script]
 
 [Google Sheets Add-on Store]: https://chrome.google.com/webstore/detail/latexkit/piadpbgaacpbaicjilhfebbfgofomiic?utm_source=permalink
+[G Suite Marketplace]: https://gsuite.google.com/marketplace/app/latexkit/716178627426
 [Facebook page]: https://www.facebook.com/latexkit/
 [gas]: https://www.npmjs.com/package/google-apps-script
 [gapps]: https://www.npmjs.com/package/node-google-apps-script
