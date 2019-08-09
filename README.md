@@ -1,6 +1,6 @@
 # LatexKit
 LatexKit is a Google Sheets Add-on.
-If you are just looking for latex table generation from Google Sheets, you can install it from the [Google Sheets Add-on Store] or visit our [Facebook page].
+If you are just looking for latex table generation from Google Sheets, you can install it from the ~~[Google Sheets Add-on Store]~~ [G Suite Marketplace] or visit our [Facebook page].
 
 We hope to have here more information :) in the future. We are new to GitHub and Google Development Tools, therefore it might take some time... but any feedback is already welcome :D
 
@@ -38,6 +38,7 @@ PS Help us reinforce the need of the getBorder method by leaving a comment in th
 * [Advanced Development Process with Apps Script]
 
 [Google Sheets Add-on Store]: https://chrome.google.com/webstore/detail/latexkit/piadpbgaacpbaicjilhfebbfgofomiic?utm_source=permalink
+[G Suite Marketplace]: https://gsuite.google.com/marketplace/app/latexkit/716178627426
 [Facebook page]: https://www.facebook.com/latexkit/
 [gas]: https://www.npmjs.com/package/google-apps-script
 [gapps]: https://www.npmjs.com/package/node-google-apps-script
