@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <!-- Use a templated HTML printing scriptlet to import common stylesheet -->
+    <?!= HtmlService.createHtmlOutputFromFile('Stylesheet').getContent(); ?>
+  </head>
+  <body>
+  <div id="PayPal-donations-main">
+  <?!= HtmlService.createHtmlOutputFromFile('PayPal-donations-main').getContent(); ?>
+  </div>
+  <div id="donations-alt" class="hide">
+  <?!= HtmlService.createHtmlOutputFromFile('donations-alt').getContent(); ?>
+  </div>
+  <!-- Use a templated HTML printing scriptlet to import JavaScript. -->
+  <?!= HtmlService.createHtmlOutputFromFile('PayPal-donationsJS').getContent(); ?>
+  </body>
+</html>

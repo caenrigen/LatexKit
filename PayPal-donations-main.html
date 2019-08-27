@@ -1,0 +1,21 @@
+  <p>It is great to know that our work has saved you a lot of time!</p>
+  <p>The LatexKit Team loves cappuccino. You will make our day by donating a few cups :)</p>
+  <label for="radio-25">
+  <input type="radio" name="radio-cappuccino" id="radio-25" onclick="setDonate25();" checked>
+  Cappuccino week (25€)
+  </label><br />
+  <label for="radio-5">
+  <input type="radio" name="radio-cappuccino" id="radio-5" onclick="setDonate5();">
+  One cappuccino (5€)
+  </label><br />
+  <label for="radio-15">
+  <input type="radio" name="radio-cappuccino" id="radio-15" onclick="setDonate15();">
+  Three cappuccinos (15€)
+  </label><br />
+  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+  <input type="hidden" name="cmd" value="_s-xclick" />
+  <input type="hidden" name="hosted_button_id" value="4AC4TC4LLN5YG" id="donate-button-value"/><!-- 25 euro default -->
+  <input type="image" class="PayPal-donate-img" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+  </form>
+  <p>P.S. Tell us what feature you miss the most in the donation note! We will give priority to the needs of our supporters.</p>
+  <button onclick="showDonateAlt()">Other options</button>

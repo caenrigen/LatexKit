@@ -16,7 +16,9 @@ var getDevSettings = function(){
                                              'updateSettings':'Update Settings',
                                              'singleData':     'Export Data',
                                              'allData':       'Export All Data',
-                                             'feedbackForm': 'Send Feedback, pleeeese!'}}
+                                             'feedbackForm': 'Send Feedback, pleeeese!',
+                                             'donateFunny': 'Keep Us Awake',
+                                             'donate': 'Donate'}}
   };
 };
 

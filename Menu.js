@@ -6,6 +6,7 @@ function onOpen(e){
   var menuLabels = getDevSettings().getMenuLabels();
   ui.createMenu('LatexKit')
   .addItem(menuLabels['singleTabular'], 'menuMakeTabular')
+  .addItem(menuLabels['donateFunny'], 'showPayPalDonations')
   .addItem(menuLabels['allTabular'], 'menuExportAllTabs')
   .addSeparator()
   .addItem(menuLabels['showSettings'], 'menuShowSettingsSheet')
@@ -15,6 +16,7 @@ function onOpen(e){
   .addItem(menuLabels['allData'], 'menuExportAllData')
   .addSeparator()
   .addItem(menuLabels['feedbackForm'], 'showFeedbackDialog')
+  .addItem(menuLabels['donate'], 'showPayPalDonations')
   .addToUi();
 }
 
