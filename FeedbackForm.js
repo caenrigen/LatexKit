@@ -11,15 +11,15 @@ function showFeedbackDialog(){
 }
 
 function makeFormHTMLtext(){
-  var hrefForm = '<a href="'+ getDevSettings().getFeedbackFormLink() + '" target="blank">short Survey (click here)</a>';
-  var hrefFacebook = '<a href="'+ getDevSettings().getFacebookLink() + '" target="blank">Facebook (click here)</a>';
-  var hrefGitHub =  '<a href="'+ getDevSettings().getGitHubLink() + '" target="blank">GitHub (click here)</a>';
-  var hrefMail = '<a href="'+ getDevSettings().getMailLink() + '" target="blank">email (click here)</a>';
-  var hrefHomepage = '<a href="'+ getDevSettings().getHomepageLink() + '" target="blank">Homepage (click here)</a>';
+  var hrefForm = '<a href="'+ getDevSettings().getFeedbackFormLink() + '" target="_blank">short Survey (click here)</a>';
+  var hrefFacebook = '<a href="'+ getDevSettings().getFacebookLink() + '" target="_blank">Facebook (click here)</a>';
+  var hrefGitHub =  '<a href="'+ getDevSettings().getGitHubLink() + '" target="_blank">GitHub (click here)</a>';
+  var hrefMail = '<a href="'+ getDevSettings().getMailLink() + '" target="_blank">email (click here)</a>';
+  var hrefHomepage = '<a href="'+ getDevSettings().getHomepageLink() + '" target="_blank">Homepage (click here)</a>';
   return '<!DOCTYPE html>\
 <html>\
   <head>\
-    <base target="_top">\
+    <base target="_blank">\
   </head>\
   <body>\
    <p>Dear user,</p>\
