@@ -10,6 +10,6 @@ The code only processes the information in the cells that are selected (or assig
 This is why this add-on needs access to your spreadsheets!
 
 ## But, but... why do you need access to my Google Drive?
-We do not read any files from your Drive. However, the advanced capabilities of the add-on allow the users to generate multiple tables in separate files that are saved in the specified folder in the user's Drive. 
+We do not read any files from your Drive. However, the advanced capabilities of the add-on allow the users to generate multiple tables in separate files that are saved in the specified folder in the user's Drive.
 
-[LatexKit]: https://chrome.google.com/webstore/detail/latexkit/piadpbgaacpbaicjilhfebbfgofomiic
+[LatexKit]: https://gsuite.google.com/marketplace/app/latexkit/716178627426
