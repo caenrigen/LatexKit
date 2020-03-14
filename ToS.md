@@ -26,7 +26,7 @@ The LatexKit team has no control over, and assumes no responsibility for, the co
 
 We strongly advise you to read the terms and conditions and privacy policies of any third-party web sites or services that you visit.
 
-## Google Chrome Store
+## G Suite Marketplace
 The use of the Add-ons is subject to [G Suite Marketplace Terms of Service].
 
 The developer team is subject to the [G Suite Marketplace Application Requirements].
