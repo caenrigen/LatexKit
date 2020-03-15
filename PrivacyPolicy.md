@@ -1,4 +1,9 @@
 # LatexKit Privacy Policy
+
+Effective: March 15, 2020
+
+Last update: March 15, 2020
+
 Ok, this is going to be short!
 
 ## Nitty-gritty

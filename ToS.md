@@ -1,12 +1,12 @@
 # LatexKit Terms of Service (ToS)
 
-Effective: June 18, 2019
+Effective: March 15, 2020
 
-Last modified: June 18, 2019
+Last modified: March 15, 2020
 
 ## Introduction
 
-Please read these Terms and Conditions ("Terms", "Terms and Conditions") carefully before using the http://caenrigen.tech/LatexKit website (the "Website") and/or the LatexKit Add-on (the "Service", the "Add-on") operated by the LatexKit team ("LatexKit team", "us", "we", or "our").
+Please read these Terms and Conditions ("Terms", "Terms and Conditions", "ToS") carefully before using the [http://caenrigen.tech/LatexKit] website (the "Website") and/or the LatexKit Add-on (the "Service", the "Add-on") operated by the LatexKit team ("LatexKit team", "us", "we", or "our").
 
 Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.
 
@@ -62,7 +62,7 @@ These Terms shall be governed and construed in accordance with the laws of Portu
 Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect. These Terms constitute the entire agreement between us regarding our Service, and supersede and replace any prior agreements we might have between us regarding the Service.
 
 ## Donations and refunds
-We appreciate a lot your support and it an essential for keeping the Service available. Nevertheless, you are responsible for the donations that you contribute with and we reserve the right to not refund donations on our sole discretion.
+We appreciate a lot your support and it is an essential for keeping the Service available. Nevertheless, you are responsible for the donations that you contribute with and we reserve the right to not refund donations on our sole discretion.
 
 ## Indemnification
 You agree to defend, indemnify and hold harmless the LatexKit team and its licensee and licensors, and their employees, contractors, agents, officers and directors, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney's fees), resulting from or arising out of 1) your use and access of the Service, by you or any person using your account and password; 2) a breach of these Terms, or 3) Content generated through the Service.
@@ -77,3 +77,4 @@ If you have any questions about these Terms, please contact us.
 [G Suite Marketplace Terms of Service]: https://gsuite.google.com/terms/marketplace/tos.html?hl=en
 [G Suite Marketplace Application Requirements]: https://developers.google.com/gsuite/marketplace/requirements
 [caenrigen.tech/LatexKit/ToS]: http://caenrigen.tech/LatexKit/ToS
+[http://caenrigen.tech/LatexKit]: http://caenrigen.tech/LatexKit
