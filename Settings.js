@@ -70,19 +70,19 @@ function updateSettingsSheet(){
     var generalSettings = getGeneralSettingsFromArray(general);
     // Ask to remove old one
     var ui = SpreadsheetApp.getUi();
-    ui.alert('Version check error', 'The exiting settings sheet seemed outated or incomplete. \
-It was renamed and a new one created.', ui.ButtonSet.OK);
+    ui.alert('Version check error', 'The exiting settings sheet seemed outdated or incomplete. \
+It was renamed and a new one created. You may want to copy-paste some of your table settings.', ui.ButtonSet.OK);
   }
 
   var tabs = settings.getTabs();
   var data = settings.getData();
   var tabDef = settings.getTabUserDefault();
   var datumDef = settings.getDatumUserDefault();
-  
+
 // Get named ranges' names
   var tabsNamedRangesNames = getNamedRangesNames(ss,generalSettings.getTabsIdentifier());
   var dataNamedRangesNames = getNamedRangesNames(ss,generalSettings.getDataIdentifier());
-//  Check if no named ranges 
+//  Check if no named ranges
   if(tabsNamedRangesNames.legth == 0 && dataNamedRangesNames.lengh == 0){
     var ui = SpreadsheetApp.getUi();
     ui.alert('No Named Ranges ending in "'+ generalSettings.getTabsIdentifier() +'" or "'+ generalSettings.getDataIdentifier() + '" where found! Please name a range first.');
