@@ -4,8 +4,8 @@ If you are just looking for latex table generation from Google Sheets, you can i
 
 We hope to have here more information :) in the future. We are new to GitHub and Google Development Tools, therefore it might take some time... but any feedback is already welcome :D
 
-## Privacy Policy
-As required by Google we do have a [Privacy Policy]. Still sceptical? Fork us and run it yourself!
+## Privacy Policy and Terms of Service
+By using LatexKit you agree with the [Terms of Service] and the [Privacy Policy]. Still sceptical? Fork us and run it yourself!
 
 ## How to use this code yourself
 There are two main reasons for you to want this:
@@ -45,6 +45,7 @@ PS Help us reinforce the need of the getBorder method by leaving a comment in th
 [python-gas-cli]: https://pypi.python.org/pypi/python-gas-cli/0.0.1
 [Advanced Development Process with Apps Script]: https://developers.googleblog.com/2015/12/advanced-development-process-with-apps.html
 [Privacy Policy]: http://caenrigen.github.io/LatexKit/PrivacyPolicy
+[Terms of Service]: http://caenrigen.github.io/LatexKit/ToS
 [clasp]: https://developers.google.com/apps-script/guides/clasp
 [working it around]: https://stackoverflow.com/questions/48754286/retrieving-google-spreadsheet-border-style-programaticaly
 [issue tracker]: https://issuetracker.google.com/issues/36760052
