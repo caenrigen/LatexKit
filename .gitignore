@@ -1,0 +1,11 @@
+# .gitignore for Google Apps Script projects using https://www.npmjs.com/package/google-apps-script
+# .gitignore
+.gas
+.DS_STORE
+.gasignore
+.gas/local.json
+.gas/remote.json
+gas-include/*
+.clasp.json
+*.sublime-project
+*.sublime-workspace
