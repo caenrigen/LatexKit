@@ -23,7 +23,7 @@ function create_manual_string(spec) {
     counterstart = 1;
     output += "\\begin{longtable}";
     output += "{" + columns_align(colFeats) + "}\r\n";
-    output += "\\caption{"+SpreadsheetApp.getActiveSheet().getName()+"}\\\\ \\hline\n"
+    output += "\\hline\n"
     for(c=0;c<matrix[0].length;c++)
     {
      output += matrix[0][c].pvalue; 
@@ -55,6 +55,7 @@ function create_manual_string(spec) {
     output += "{\\textwidth}";
     output += "{" + columns_align(colFeats) + "}\r\n";
   }else{
+    Logger.log(tableType)
     if (tableType.length){
       ui.alert("Invalid Table Type.\nUse : tabular, tabularx or longtable");
     }else{

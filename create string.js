@@ -10,7 +10,7 @@ function create_string(spec) {
     counterstart = 1;
     output += "\\begin{longtable}";
     output += "{" + columns_align(colFeats) + "}\r\n";
-    output += "\\caption{"+SpreadsheetApp.getActiveSheet().getName()+"}\\\\ \\hline\n"
+    output += "\\hline\n"
     for(c=0;c<matrix[0].length;c++)
     {
      output += matrix[0][c].pvalue; 
