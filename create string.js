@@ -43,9 +43,9 @@ function create_string(spec) {
     output += "{" + columns_align(colFeats) + "}\r\n";
   }else{
     if (tableType.length){
-      ui.alert("Invalid Table Type.\nUse : tabular, tabularx or longtable");
+      SpreadsheetApp.getUi().alert("Invalid Table Type.\nUse : tabular, tabularx or longtable");
     }else{
-      ui.alert("Table Type not defined.\nUse : tabular, tabularx or longtable");
+      SpreadsheetApp.getUi().alert("Table Type not defined.\nUse : tabular, tabularx or longtable");
     }
   }
   if(rowFeats[0].get_hline())
@@ -84,10 +84,10 @@ function create_string(spec) {
   }
   else{
     if (tableType.length){
-      ui.alert("Invalid Table Type.\nUse : tabular, tabularx or longtable");
+      SpreadsheetApp.getUi().alert("Invalid Table Type.\nUse : tabular, tabularx or longtable");
     }
     else{
-      ui.alert("Table Type not defined.\nUse : tabular, tabularx or longtable");
+      SpreadsheetApp.getUi().alert("Table Type not defined.\nUse : tabular, tabularx or longtable");
     }
   }
   

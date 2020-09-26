@@ -57,9 +57,9 @@ function create_manual_string(spec) {
   }else{
     Logger.log(tableType)
     if (tableType.length){
-      ui.alert("Invalid Table Type.\nUse : tabular, tabularx or longtable");
+      SpreadsheetApp.getUi().alert("Invalid Table Type.\nUse : tabular, tabularx or longtable");
     }else{
-      ui.alert("Table Type not defined.\nUse : tabular, tabularx or longtable");
+      SpreadsheetApp.getUi().alert("Table Type not defined.\nUse : tabular, tabularx or longtable");
     }
   }
 
@@ -85,10 +85,10 @@ function create_manual_string(spec) {
   }
   else{
     if (tableType.length){
-      ui.alert("Invalid Table Type.\nUse : tabular, tabularx or longtable");
+      SpreadsheetApp.getUi().alert("Invalid Table Type.\nUse : tabular, tabularx or longtable");
     }
     else{
-      ui.alert("Table Type not defined.\nUse : tabular, tabularx or longtable");
+      SpreadsheetApp.getUi().alert("Table Type not defined.\nUse : tabular, tabularx or longtable");
     }
   }
   return output;
