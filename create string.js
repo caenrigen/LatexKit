@@ -4,13 +4,15 @@ function create_string(spec) {
   var colFeats = spec.colFeats;
   var rowFeats = spec.rowFeats;
   var tableType = spec.tableType;
+  var tableName = spec.tableName;
   var counterstart = 0;
   var output = '';
   if (tableType=="longtable"){
     counterstart = 1;
     output += "\\begin{longtable}";
     output += "{" + columns_align(colFeats) + "}\r\n";
-    output += "\\hline\n"
+    output += "\\caption{"+tableName+"}\\\\ \\hline\n";
+    output += "\\label{tab:"+tableName.replace(/\s/g, '').trim()+"}\r\n";
     for(c=0;c<matrix[0].length;c++)
     {
      output += matrix[0][c].pvalue; 

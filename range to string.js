@@ -42,11 +42,12 @@ function range_to_string(spec){
       matrix: matrix,
       colFeats: colFeats,
       manualColSpec: manualColSpec,
-      tableType: tableType
+      tableType: tableType,
+      tableName: range.getSheet().getName()
     });
   }
 
   // create the printable string
   // according to column features and row features of the table
-  return create_string({matrix: matrix, colFeats: colFeats, rowFeats: rowFeats, tableType: tableType});
+  return create_string({matrix: matrix, colFeats: colFeats, rowFeats: rowFeats, tableType: tableType, tableName: range.getSheet().getName() });
 }

@@ -7,6 +7,7 @@ function create_manual_string(spec) {
   var new_range_value = new_range.getValues();
   var manualColSpec = spec.manualColSpec;
   var tableType = spec.tableType;
+  var tableName = spec.tableName;
   var counterstart = 0;
   var output = '';
   var colAlign = '';
@@ -23,7 +24,8 @@ function create_manual_string(spec) {
     counterstart = 1;
     output += "\\begin{longtable}";
     output += "{" + columns_align(colFeats) + "}\r\n";
-    output += "\\hline\n"
+    output += "\\caption{"+tableName+"}\\\\ \\hline\n";
+    output += "\\label{tab:"+tableName.replace(/\s/g, '').trim()+"}\r\n";
     for(c=0;c<matrix[0].length;c++)
     {
      output += matrix[0][c].pvalue; 
@@ -55,7 +57,6 @@ function create_manual_string(spec) {
     output += "{\\textwidth}";
     output += "{" + columns_align(colFeats) + "}\r\n";
   }else{
-    Logger.log(tableType)
     if (tableType.length){
       SpreadsheetApp.getUi().alert("Invalid Table Type.\nUse : tabular, tabularx or longtable");
     }else{
