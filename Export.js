@@ -1,4 +1,4 @@
-function menuMakeTabular(){
+function menuMakeTable(){
   singleExport({groupSettingsGetter: 'getTabs',defaultUserSettingsArrayGetter:'getTabUserDefault',defaultSettingsArrayGetter: 'getTabDefault',strGenerator: range_to_string});
 }
 

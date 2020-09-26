@@ -4,10 +4,10 @@
 function onOpen(e){
   var ui = SpreadsheetApp.getUi();
   var menuLabels = getDevSettings().getMenuLabels();
-  ui.createMenu('LatexKit')
-  .addItem(menuLabels['singleTabular'], 'menuMakeTabular')
+  ui.createMenu('LatexKits')
+  .addItem(menuLabels['singleTable'], 'menuMakeTable')
   .addItem(menuLabels['donateFunny'], 'showPayPalDonations')
-  .addItem(menuLabels['allTabular'], 'menuExportAllTabs')
+  .addItem(menuLabels['allTables'], 'menuExportAllTabs')
   .addSeparator()
   .addItem(menuLabels['showSettings'], 'menuShowSettingsSheet')
   .addItem(menuLabels['updateSettings'], 'updateSettingsSheet')

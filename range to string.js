@@ -2,7 +2,7 @@ function range_to_string(spec){
 
   var range = spec.range;
   var settingArray = spec.settingsArray;
-
+  var tableType = settingArray[7];
   // Create array of colFeat obj.
   // and configure column features:
   // is_pmError
@@ -41,10 +41,12 @@ function range_to_string(spec){
       range: range,
       matrix: matrix,
       colFeats: colFeats,
-      manualColSpec: manualColSpec});
+      manualColSpec: manualColSpec,
+      tableType: tableType
+    });
   }
 
   // create the printable string
   // according to column features and row features of the table
-  return create_string({matrix: matrix, colFeats: colFeats, rowFeats: rowFeats});
+  return create_string({matrix: matrix, colFeats: colFeats, rowFeats: rowFeats, tableType: tableType});
 }
