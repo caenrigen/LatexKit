@@ -28,7 +28,7 @@ function create_manual_string(spec) {
     output += "\\label{tab:"+tableName.replace(/\s/g, '').trim()+"}\r\n";
     for(c=0;c<matrix[0].length;c++)
     {
-     output += matrix[0][c].pvalue; 
+     output += matrix[0][c].pvalue;
     }
     output += "\\\\ \n";
     output += "\\hline\n";
@@ -38,7 +38,7 @@ function create_manual_string(spec) {
     output += "\\hline\n";
     for(c=0;c<matrix[0].length;c++)
     {
-     output += matrix[0][c].pvalue; 
+     output += matrix[0][c].pvalue;
     }
     output += "\\\\ \n";
     output += "\\hline\n";

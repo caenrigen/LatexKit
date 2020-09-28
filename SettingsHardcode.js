@@ -64,7 +64,7 @@ var getTabSettingsFromArray = function (tabSettings){
     getOptions:     function(){return tabSettings[4];},
     getBigstrut:    function(){return tabSettings[5];},
     getEscapeChars: function(){return tabSettings[6];},
-    getTableType: function(){return tabSettings[7];}
+    getTableType:   function(){return tabSettings[7];}
   };
 };
 var getDatumSettingsFromArray = function (datumSettings){
