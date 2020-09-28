@@ -4,7 +4,7 @@
 function onOpen(e){
   var ui = SpreadsheetApp.getUi();
   var menuLabels = getDevSettings().getMenuLabels();
-  ui.createMenu('LatexKits')
+  ui.createMenu('LatexKit')
   .addItem(menuLabels['singleTable'], 'menuMakeTable')
   .addItem(menuLabels['donateFunny'], 'showPayPalDonations')
   .addItem(menuLabels['allTables'], 'menuExportAllTabs')
