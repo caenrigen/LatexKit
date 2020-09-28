@@ -152,6 +152,14 @@ longtable\n\
     ];},
     getDatumDefaultNotes : function(){return [
       ['This is the default settings for a Data.\n\nThey are used when you click \"'+getDevSettings().getMenuLabels()['singleData']+'\" AND are also copied below for each new Named Range that is added for data export.']
-    ];}
+    ];},
+    getTableTypeError : function(tableType){
+      if (tableType.length){
+        return [[tableType+' is not a valid Table Type.\nUse : tabular, tabularx or longtable.']];
+      }else{
+        return [['Table Type not defined.\nUse : tabular, tabularx or longtable.']];
+      }
+    }    
+
   };
 };
