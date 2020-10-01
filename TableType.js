@@ -8,7 +8,7 @@ function beginTable(spec){
   if (tableType=="longtable"){
     counterstart = 1;
     output += "\\begin{longtable}";
-    output += "{" + columns_align(colFeats) + "}\r\n";
+    output += "{" + colFeats + "}\r\n";
     output += "\\caption{"+tableName+"}\\\\ \\hline\n";
     output += "\\label{tab:"+tableName.replace(/\s/g, '').trim()+"}\r\n";
     for(c=0;c<matrix[0].length;c++)
@@ -36,11 +36,11 @@ function beginTable(spec){
   }
   else if (tableType=="tabular"){
     output += "\\begin{tabular}";
-    output += "{" + columns_align(colFeats) + "}\r\n";
+    output += "{" + colFeats + "}\r\n";
   }else if (tableType=="tabularx"){
     output += "\\begin{tabularx}";
     output += "{\\textwidth}";
-    output += "{" + columns_align(colFeats) + "}\r\n";
+    output += "{" + colFeats + "}\r\n";
   }
   else{
     getTableTypeError(tableType);

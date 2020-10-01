@@ -17,9 +17,9 @@ function create_manual_string(spec) {
     // not empty
     colAlign = manualColSpec;
   } else {
-    colAlign = columns_align(colFeats);
+    colAlign = colFeats;
   }
-
+  spec.colFeats = colAlign;
   output+=beginTable(spec);
 
   var i,j;

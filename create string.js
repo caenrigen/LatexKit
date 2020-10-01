@@ -7,8 +7,8 @@ function create_string(spec) {
   var tableName = spec.tableName;
   var counterstart = 0;
   var output = '';
-  
-  output+=beginTable(spec);
+
+  output+=beginTable({colFeats:columns_align(colFeats),matrix:matrix,tableType:tableType,tableName:tableName});
 
   if(rowFeats[0].get_hline())
     output += ' \\hline\r\n';
