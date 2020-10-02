@@ -27,7 +27,7 @@ function setTablePrePost(spec){
     pre_table += "\\\\ \n";
     pre_table += "\\hline\n";
     pre_table += "\\endfirsthead\n";
-    pre_table += "\\multicolumn{" + String(colFeats.length)+"}{c}%\n";
+    pre_table += "\\multicolumn{" + String(colFeats.replace(/\|/g, '').length)+"}{c}%\n";
     pre_table += continue_previous;
     pre_table += "\\hline\n";
     for(c=0;c<matrix[0].length;c++)
@@ -37,7 +37,7 @@ function setTablePrePost(spec){
     pre_table += "\\\\ \n";
     pre_table += "\\hline\n";
     pre_table += "\\endhead\n";
-    pre_table += "\\hline \\multicolumn{" + String(colFeats.length) +"}"+continue_next;
+    pre_table += "\\hline \\multicolumn{" + String(colFeats.replace(/\|/g, '').length) +"}"+continue_next;
     pre_table += "\\endfoot\n";
     pre_table += "\\hline\n";
     pre_table += "\\endlastfoot\n";
