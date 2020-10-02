@@ -4,11 +4,12 @@ function create_string(spec) {
   var colFeats = spec.colFeats;
   var rowFeats = spec.rowFeats;
   var tableType = spec.tableType;
-  var tableName = spec.tableName;
+  var tableCaption = spec.tableCaption;
   var counterstart = 0;
   var output = '';
 
-  output+=beginTable({colFeats:columns_align(colFeats),matrix:matrix,tableType:tableType,tableName:tableName});
+  var prepost = setTablePrePost({colFeats:columns_align(colFeats),matrix:matrix,tableType:tableType, tableCaption: tableCaption, range:spec.range});
+  output+=prepost.pre_table;
 
   if(rowFeats[0].get_hline())
     output += ' \\hline\r\n';
@@ -35,7 +36,7 @@ function create_string(spec) {
     output+='\r\n';
   }
 
-  output+=endTable(tableType);
+  output+=prepost.post_table;
   
   return output;
   

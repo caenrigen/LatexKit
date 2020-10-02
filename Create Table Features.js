@@ -4,6 +4,7 @@ function create_tableFeats(spec) {
   var values = range.getDisplayValues();
   var numColumns = range.getNumColumns();
 
+  
   //***************** COLUMN FEATURES ARRAY CREATION *****************
 
   // Array of ColFeat structures that saves the characteristics of each column
@@ -43,21 +44,34 @@ function create_tableFeats(spec) {
 
   // ************** END OF ROW FEATURES CREATION **********************
 
-  // ***************** TEMPLATE CONFIGURATION *************************
-
   var settingsArray = spec.settingsArray;
   var sets = getTabSettingsFromArray(settingsArray);
+
+  //***************** TABLE TYPE FEATURES  ****************************
+  
+  var tableType = sets.getTableType();
+  
+  // *************** END OF TABLE TYPE FEATURES ***********************
+  
+  //***************** TABLE CAPTION FEATURES  *************************
+  var tableCaption = sets.getCaption();
+  if (tableCaption == "default"){
+    tableCaption = range.getSheet().getName();
+  }
+  // *************** END OF TABLE CAPTION FEATURES ********************
+  
+  // ***************** TEMPLATE CONFIGURATION *************************
   var options = sets.getOptions();
   var template = sets.getTemplate();
 
   if(!template)
-    return {rowFeats: rowFeats, colFeats: colFeats};
+    return {rowFeats: rowFeats, colFeats: colFeats, tableType: tableType, tableCaption: tableCaption};
 
   if(options !== false && typeof options != 'number')
   {
     SpreadsheetApp.getUi().alert('Warning:\nField \'Options\' is invalid for NamedRange \''+sets.getRangeName()+'\'');
 
-    return {rowFeats: rowFeats, colFeats: colFeats};
+    return {rowFeats: rowFeats, colFeats: colFeats, tableType: tableType, tableCaption: tableCaption};
   }
 
   template=template.toLowerCase();
@@ -73,7 +87,7 @@ function create_tableFeats(spec) {
     if(sets.getBigstrut() === true)
       set_bigstrut(rowFeats);
 
-    return {rowFeats: rowFeats, colFeats: colFeats};
+    return {rowFeats: rowFeats, colFeats: colFeats, tableType: tableType, tableCaption: tableCaption};
   }
   // ********** END OF HORIZON ***************
 
@@ -89,7 +103,7 @@ function create_tableFeats(spec) {
     if(sets.getBigstrut() === true)
       set_bigstrut(rowFeats);
 
-    return {rowFeats: rowFeats, colFeats: colFeats};
+    return {rowFeats: rowFeats, colFeats: colFeats, tableType: tableType, tableCaption: tableCaption};
   }
   // ******** END OF BARCODE ******************
 
@@ -119,7 +133,7 @@ function create_tableFeats(spec) {
       if(sets.getBigstrut() === true)
         set_bigstrut(rowFeats);
 
-    return {rowFeats: rowFeats, colFeats: colFeats};
+    return {rowFeats: rowFeats, colFeats: colFeats, tableType: tableType, tableCaption: tableCaption};
   }
 
   if(template === 'manual'){
@@ -132,10 +146,9 @@ function create_tableFeats(spec) {
     }
     return {manual: true, rowFeats: rowFeats, colFeats: colFeats, manualColSpec: manualColSpec};
   }
-
   // If the code reached this point no template matches were found, warn the user
   SpreadsheetApp.getUi().alert('Warning:\nInvalid Template for NamedRange '+sets.getRangeName());
-  return {rowFeats: rowFeats, colFeats: colFeats};
+  return {rowFeats: rowFeats, colFeats: colFeats, tableType: tableType, tableCaption: tableCaption};
 }
 
 // Auxiliar function to configure bigstruts if need be

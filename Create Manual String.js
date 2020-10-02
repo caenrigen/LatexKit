@@ -7,7 +7,7 @@ function create_manual_string(spec) {
   var new_range_value = new_range.getValues();
   var manualColSpec = spec.manualColSpec;
   var tableType = spec.tableType;
-  var tableName = spec.tableName;
+  var tableCaption = spec.tableCaption;
   var counterstart = 0;
   var output = '';
   var colAlign = '';
@@ -20,7 +20,8 @@ function create_manual_string(spec) {
     colAlign = colFeats;
   }
   spec.colFeats = colAlign;
-  output+=beginTable(spec);
+  var prepost = setTablePrePost({colFeats:columns_align(colFeats),matrix:matrix,tableType:tableType, tableCaption: tableCaption, range:spec.range});
+  output+=prepost.pre_table;
 
   var i,j;
   for(i=0;i<matrix.length;i++)
@@ -32,7 +33,7 @@ function create_manual_string(spec) {
     output+='\\\\' + new_range_value[i+1][0] + '\r\n';
   }
 
-  output+=endTable(tableType);
+  output+=prepost.post_table;
 
   return output;
 

@@ -1,66 +1,61 @@
-function beginTable(spec){
+function setTablePrePost(spec){
   var colFeats = spec.colFeats;
   var matrix   = spec.matrix;
   var tableType = spec.tableType;
-  var tableName = spec.tableName;
-  var output = '';
+  var range = spec.range;
+  var tableCaption = spec.tableCaption;
+  var pre_table = '';
+  var post_table = '';
+
   
   if (tableType=="longtable"){
-    counterstart = 1;
-    output += "\\begin{longtable}";
-    output += "{" + colFeats + "}\r\n";
-    output += "\\caption{"+tableName+"}\\\\ \\hline\n";
-    output += "\\label{tab:"+tableName.replace(/\s/g, '').trim()+"}\r\n";
-    for(c=0;c<matrix[0].length;c++)
-    {
-     output += matrix[0][c].pvalue;
-    }
-    output += "\\\\ \n";
-    output += "\\hline\n";
-    output += "\\endfirsthead\n";
-    output += "\\multicolumn{" + String(colFeats.length)+"}{c}%\n";
-    output += "\{\\tablename\ \\thetable\ -- \\textit{Continued from previous page}} \\\\ \n";
-    output += "\\hline\n";
-    for(c=0;c<matrix[0].length;c++)
-    {
-     output += matrix[0][c].pvalue;
-    }
-    output += "\\\\ \n";
-    output += "\\hline\n";
-    output += "\\endhead\n";
-    output += "\\hline \\multicolumn{" + String(colFeats.length) +"}{r}{\\textit{Continued on next page}} \\\\ \n"
-    output += "\\endfoot\n";
-    output += "\\hline\n";
-    output += "\\endlastfoot\n";
-    output += "\\hline\n";
-  }
-  else if (tableType=="tabular"){
-    output += "\\begin{tabular}";
-    output += "{" + colFeats + "}\r\n";
-  }else if (tableType=="tabularx"){
-    output += "\\begin{tabularx}";
-    output += "{\\textwidth}";
-    output += "{" + colFeats + "}\r\n";
-  }
-  else{
-    getTableTypeError(tableType);
-  }
-  return output;
-}
 
-function endTable(tableType){
-  var output = '';
-  if (tableType=="longtable"){
-    output+= "\\end{longtable}\r\n";
+    var continue_next = getNextPageContinue(range.offset(range.getNumRows(), 0).getDisplayValue());
+    var continue_previous = getPreviousPageContinue(range.offset(range.getNumRows()+1, 0).getDisplayValue());
+    
+    counterstart = 1;
+    pre_table += "\\begin{longtable}";
+    pre_table += "{" + colFeats + "}\r\n";
+    if(tableCaption){
+      pre_table += "\\caption{"+tableCaption+"}\\\\ \\hline\n";
+      pre_table += "\\label{tab:"+tableCaption.replace(/\s/g, '').trim()+"}\r\n";
+    }
+    for(c=0;c<matrix[0].length;c++)
+    {
+     pre_table += matrix[0][c].pvalue;
+    }
+    pre_table += "\\\\ \n";
+    pre_table += "\\hline\n";
+    pre_table += "\\endfirsthead\n";
+    pre_table += "\\multicolumn{" + String(colFeats.length)+"}{c}%\n";
+    pre_table += continue_previous;
+    pre_table += "\\hline\n";
+    for(c=0;c<matrix[0].length;c++)
+    {
+     pre_table += matrix[0][c].pvalue;
+    }
+    pre_table += "\\\\ \n";
+    pre_table += "\\hline\n";
+    pre_table += "\\endhead\n";
+    pre_table += "\\hline \\multicolumn{" + String(colFeats.length) +"}"+continue_next;
+    pre_table += "\\endfoot\n";
+    pre_table += "\\hline\n";
+    pre_table += "\\endlastfoot\n";
+    pre_table += "\\hline\n";
+    post_table+= "\\end{longtable}\r\n";
   }
   else if (tableType=="tabular"){
-    output+= "\\end{tabular}\r\n";
-  }
-  else if (tableType=="tabularx"){
-    output += "\\end{tabularx}\r\n";
+    pre_table += "\\begin{tabular}";
+    pre_table += "{" + colFeats + "}\r\n";
+    post_table+= "\\end{tabular}\r\n";
+  }else if (tableType=="tabularx"){
+    pre_table += "\\begin{tabularx}";
+    pre_table += "{\\textwidth}";
+    pre_table += "{" + colFeats + "}\r\n";
+    post_table += "\\end{tabularx}\r\n";
   }
   else{
     getTableTypeError(tableType);
   }
-  return output;
+  return {pre_table: pre_table, post_table: post_table};
 }
