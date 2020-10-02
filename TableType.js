@@ -12,6 +12,7 @@ function setTablePrePost(spec){
 
     var continue_next = getNextPageContinue(range.offset(range.getNumRows(), 0).getDisplayValue());
     var continue_previous = getPreviousPageContinue(range.offset(range.getNumRows()+1, 0).getDisplayValue());
+    var mcol_width = String(colFeats.replace(/\|/g, '').length);
     
     counterstart = 1;
     pre_table += "\\begin{longtable}";
@@ -27,7 +28,7 @@ function setTablePrePost(spec){
     pre_table += "\\\\ \n";
     pre_table += "\\hline\n";
     pre_table += "\\endfirsthead\n";
-    pre_table += "\\multicolumn{" + String(colFeats.replace(/\|/g, '').length)+"}{c}%\n";
+    pre_table += "\\multicolumn{" + mcol_width +"}{c}%\n";
     pre_table += continue_previous;
     pre_table += "\\hline\n";
     for(c=0;c<matrix[0].length;c++)
@@ -37,7 +38,7 @@ function setTablePrePost(spec){
     pre_table += "\\\\ \n";
     pre_table += "\\hline\n";
     pre_table += "\\endhead\n";
-    pre_table += "\\hline \\multicolumn{" + String(colFeats.replace(/\|/g, '').length) +"}"+continue_next;
+    pre_table += "\\hline \\multicolumn{" + mcol_width +"}"+continue_next;
     pre_table += "\\endfoot\n";
     pre_table += "\\hline\n";
     pre_table += "\\endlastfoot\n";
