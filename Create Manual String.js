@@ -20,7 +20,8 @@ function create_manual_string(spec) {
     colAlign = colFeats;
   }
   spec.colFeats = colAlign;
-  var prepost = setTablePrePost({colFeats:columns_align(colFeats,matrix:matrix,tableType:tableType, tableCaption: tableCaption, range:spec.range});
+  var prepost = setTablePrePost({colFeats:columns_align(colFeats),matrix:matrix,tableType:tableType, tableCaption: tableCaption, range:spec.range});
+  counterstart = prepost.counterstart;
   output+=prepost.pre_table;
 
   var i,j;

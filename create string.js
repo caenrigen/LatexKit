@@ -9,6 +9,7 @@ function create_string(spec) {
   var output = '';
 
   var prepost = setTablePrePost({colFeats:columns_align(colFeats),matrix:matrix,tableType:tableType, tableCaption: tableCaption, range:spec.range});
+  counterstart = prepost.counterstart;
   output+=prepost.pre_table;
 
   if(rowFeats[0].get_hline())

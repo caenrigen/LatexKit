@@ -6,14 +6,14 @@ function setTablePrePost(spec){
   var tableCaption = spec.tableCaption;
   var pre_table = '';
   var post_table = '';
-
+  var counterstart = 0;
   
   if (tableType=="longtable"){
 
     var continue_next = getNextPageContinue(range.offset(range.getNumRows(), 0).getDisplayValue());
     var continue_previous = getPreviousPageContinue(range.offset(range.getNumRows()+1, 0).getDisplayValue());
     var mcol_width = String(colFeats.replace(/\|/g, '').length);
-    
+
     counterstart = 1;
     pre_table += "\\begin{longtable}";
     pre_table += "{" + colFeats + "}\r\n";
@@ -49,14 +49,40 @@ function setTablePrePost(spec){
     pre_table += "\\begin{tabular}";
     pre_table += "{" + colFeats + "}\r\n";
     post_table+= "\\end{tabular}\r\n";
-  }else if (tableType=="tabularx"){
+  }
+  else if (tableType=="tabularx"){
     pre_table += "\\begin{tabularx}";
     pre_table += "{\\textwidth}";
     pre_table += "{" + colFeats + "}\r\n";
     post_table += "\\end{tabularx}\r\n";
   }
+  else if (tableType=="table/tabular"){
+    pre_table += "\\begin{table}[H]";
+    pre_table += "\\centering";
+    pre_table += "\\begin{tabular}";
+    pre_table += "{" + colFeats + "}\r\n";
+    post_table+= "\\end{tabular}\r\n";
+    if(tableCaption){
+      post_table += "\\caption{"+tableCaption+"}\n";
+      post_table += "\\label{tab:"+tableCaption.replace(/\s/g, '').trim()+"}\r\n";
+    }
+    post_table+= "\\end{table}\r\n";
+  }
+  else if (tableType=="table/tabularx"){
+    pre_table += "\\begin{table}[H]";
+    pre_table += "\\centering";
+    pre_table += "\\begin{tabularx}";
+    pre_table += "{\\textwidth}";
+    pre_table += "{" + colFeats + "}\r\n";
+    post_table += "\\end{tabularx}\r\n";
+    if(tableCaption){
+      post_table += "\\caption{"+tableCaption+"}\n";
+      post_table += "\\label{tab:"+tableCaption.replace(/\s/g, '').trim()+"}\r\n";
+    }
+    post_table+= "\\end{table}\r\n";
+  }
   else{
     getTableTypeError(tableType);
   }
-  return {pre_table: pre_table, post_table: post_table};
+  return {pre_table: pre_table, post_table: post_table,counterstart: counterstart};
 }
