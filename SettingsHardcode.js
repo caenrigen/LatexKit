@@ -32,11 +32,11 @@ var getDefaultSettings = function(){
     ];},
     getTabsHeader : function(){return [
     ['TABS'],
-      ['Range Name:','Folder:','Extension:','Template:','Option:','Bigstrut:','Escape characters:','Table Type']
+      ['Range Name:','Folder:','Extension:','Template:','Option:','Bigstrut:','Escape characters:','Table Type','Caption']
     ];},
     // Note that this default is not an array of arrays
     // This makes it more convenient for most calls
-    getTabDefault : function(){return ['default','./tabs','.tex',false,false,false,'','tabular'];},
+    getTabDefault : function(){return ['default','./tabs','.tex',false,false,false,'','tabular','default'];},
     getDataHeader : function(){return[
     ['DATA'],
       ['Range Name:','Folder:','Extension:','Full Precision:','Separator:','Column Swap:']
@@ -64,7 +64,8 @@ var getTabSettingsFromArray = function (tabSettings){
     getOptions:     function(){return tabSettings[4];},
     getBigstrut:    function(){return tabSettings[5];},
     getEscapeChars: function(){return tabSettings[6];},
-    getTableType:   function(){return tabSettings[7];}
+    getTableType:   function(){return tabSettings[7];},
+    getCaption:     function(){return tabSettings[8];}
   };
 };
 var getDatumSettingsFromArray = function (datumSettings){
@@ -134,6 +135,13 @@ e.g. to escape all special latex characters "&%$#_{}~^\\".',
 tabular\n\
 tabularx\n\
 longtable\n\
+table/tabular\n\
+table/tabularx\n\ ',
+
+'Set caption/label for longtable and table\n\
+Set to \'default\' to use the sheet Name as the caption for your table \n\
+or \'your custom table caption title\' \n\
+or simply leave this field empty for no caption \n\
 '
       ]
     ];},
@@ -154,4 +162,25 @@ longtable\n\
       ['This is the default settings for a Data.\n\nThey are used when you click \"'+getDevSettings().getMenuLabels()['singleData']+'\" AND are also copied below for each new Named Range that is added for data export.']
     ];}
   };
+};
+
+var getNextPageContinue =  function(continue_next){
+  if (continue_next.length == 0 ){
+    continue_next = "Continued on next page";
+  }      
+  return "{r}{\\textit{"+continue_next+"}} \\\\ \n";
+};
+var getPreviousPageContinue =  function(continue_previous){
+  if (continue_previous.length == 0 ){
+    continue_previous = "Continued from previous page"
+  }    
+  return "\{\\tablename\ \\thetable\ -- \\textit{"+continue_previous+"}} \\\\ \n";
+};
+
+var getTableTypeError = function(tableType){
+  if (tableType){
+    return [[tableType+' is not a valid Table Type.\nUse : tabular, tabularx or longtable.']];
+  }else{
+    return [['Table Type not defined.\nUse : tabular, tabularx or longtable.']];
+  }
 };
