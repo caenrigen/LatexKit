@@ -1,7 +1,7 @@
 var getDevSettings = function(){
   return {
     getAppName:           function(){return 'LatexKit'},
-    getAppVersion:        function(){return 'v1.1.4'},
+    getAppVersion:        function(){return 'v1.1.5'},
     getSettingsSheetName: function(){return 'LatexKitSettings'},
     getErrorColumnTag:    function(){return 'err'},
     getDataColSeparators: function(){return {space:' ',tab:'\t',enter:'\r\n',LF:'\n',CR:'\r'}},
