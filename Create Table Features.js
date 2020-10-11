@@ -4,7 +4,7 @@ function create_tableFeats(spec) {
   var values = range.getDisplayValues();
   var numColumns = range.getNumColumns();
 
-  
+
   //***************** COLUMN FEATURES ARRAY CREATION *****************
 
   // Array of ColFeat structures that saves the characteristics of each column
@@ -46,32 +46,54 @@ function create_tableFeats(spec) {
 
   var settingsArray = spec.settingsArray;
   var sets = getTabSettingsFromArray(settingsArray);
+  var rangeName = sets.getRangeName();
 
   //***************** TABLE TYPE FEATURES  ****************************
-  
+
   var tableType = sets.getTableType();
-  
+
   // *************** END OF TABLE TYPE FEATURES ***********************
-  
+
   //***************** TABLE CAPTION FEATURES  *************************
   var tableCaption = sets.getCaption();
   if (tableCaption == "default"){
     tableCaption = range.getSheet().getName();
   }
+
+  rageNameSplit = rangeName.split(".")
+  var tableLabel = undefined;
+  if (rageNameSplit[rageNameSplit.length - 1] !== "" && rageNameSplit.length > 1){
+    tableLabel = rageNameSplit[0];
+  } else {
+    tableLabel = tableLabel;
+  }
   // *************** END OF TABLE CAPTION FEATURES ********************
-  
+
   // ***************** TEMPLATE CONFIGURATION *************************
   var options = sets.getOptions();
   var template = sets.getTemplate();
 
   if(!template)
-    return {rowFeats: rowFeats, colFeats: colFeats, tableType: tableType, tableCaption: tableCaption};
+    return {
+      rowFeats: rowFeats,
+      colFeats: colFeats,
+      tableType: tableType,
+      tableCaption: tableCaption,
+      tableLabel: tableLabel,
+    };
 
   if(options !== false && typeof options != 'number')
   {
-    SpreadsheetApp.getUi().alert('Warning:\nField \'Options\' is invalid for NamedRange \''+sets.getRangeName()+'\'');
+    SpreadsheetApp.getUi().alert(
+      'Warning:\nField \'Options\' is invalid for NamedRange \'' + rangeName + '\'');
 
-    return {rowFeats: rowFeats, colFeats: colFeats, tableType: tableType, tableCaption: tableCaption};
+    return {
+      rowFeats: rowFeats,
+      colFeats: colFeats,
+      tableType: tableType,
+      tableCaption: tableCaption,
+      tableLabel: tableLabel,
+    };
   }
 
   template=template.toLowerCase();
@@ -87,7 +109,13 @@ function create_tableFeats(spec) {
     if(sets.getBigstrut() === true)
       set_bigstrut(rowFeats);
 
-    return {rowFeats: rowFeats, colFeats: colFeats, tableType: tableType, tableCaption: tableCaption};
+    return {
+      rowFeats: rowFeats,
+      colFeats: colFeats,
+      tableType: tableType,
+      tableCaption: tableCaption,
+      tableLabel: tableLabel,
+    };
   }
   // ********** END OF HORIZON ***************
 
@@ -103,7 +131,13 @@ function create_tableFeats(spec) {
     if(sets.getBigstrut() === true)
       set_bigstrut(rowFeats);
 
-    return {rowFeats: rowFeats, colFeats: colFeats, tableType: tableType, tableCaption: tableCaption};
+    return {
+      rowFeats: rowFeats,
+      colFeats: colFeats,
+      tableType: tableType,
+      tableCaption: tableCaption,
+      tableLabel: tableLabel,
+    };
   }
   // ******** END OF BARCODE ******************
 
@@ -133,7 +167,13 @@ function create_tableFeats(spec) {
       if(sets.getBigstrut() === true)
         set_bigstrut(rowFeats);
 
-    return {rowFeats: rowFeats, colFeats: colFeats, tableType: tableType, tableCaption: tableCaption};
+    return {
+      rowFeats: rowFeats,
+      colFeats: colFeats,
+      tableType: tableType,
+      tableCaption: tableCaption,
+      tableLabel: tableLabel,
+    };
   }
 
   if(template === 'manual'){
@@ -148,7 +188,13 @@ function create_tableFeats(spec) {
   }
   // If the code reached this point no template matches were found, warn the user
   SpreadsheetApp.getUi().alert('Warning:\nInvalid Template for NamedRange '+sets.getRangeName());
-  return {rowFeats: rowFeats, colFeats: colFeats, tableType: tableType, tableCaption: tableCaption};
+  return {
+    rowFeats: rowFeats,
+    colFeats: colFeats,
+    tableType: tableType,
+    tableCaption: tableCaption,
+    tableLabel: tableLabel,
+  };
 }
 
 // Auxiliar function to configure bigstruts if need be

@@ -5,15 +5,17 @@ function create_string(spec) {
   var rowFeats = spec.rowFeats;
   var tableType = spec.tableType;
   var tableCaption = spec.tableCaption;
+  var tableLabel = spec.tableLabel;
   var counterstart = 0;
   var output = '';
 
   var prepost = setTablePrePost({
-    colFeats:columns_align(colFeats),
-    matrix:matrix,
-    tableType:tableType,
+    colFeats: columns_align(colFeats),
+    matrix: matrix,
+    tableType: tableType,
     tableCaption: tableCaption,
-    range:spec.range});
+    tableLabel: tableLabel,
+    range: spec.range});
   counterstart = prepost.counterstart;
   output+=prepost.pre_table;
 

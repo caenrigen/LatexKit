@@ -1,7 +1,7 @@
 function range_to_string(spec){
 
   var range = spec.range;
-  
+
 
   // Create array of colFeat obj.
   // and configure column features:
@@ -12,6 +12,8 @@ function range_to_string(spec){
   var rowFeats = tabFeats.rowFeats;
   var tableType = tabFeats.tableType;
   var tableCaption = tabFeats.tableCaption;
+  var tableLabel = tabFeats.tableLabel;
+
   // Create a 2D array of Cell obj.
   // each Cell obj. contains properties:
   // string   dvalue:   displayed value on the sheet
@@ -42,13 +44,22 @@ function range_to_string(spec){
       range: range,
       matrix: matrix,
       colFeats: colFeats,
-      manualColSpec: manualColSpec,
       tableType: tableType,
-      tableCaption: tableCaption
+      tableCaption: tableCaption,
+      tableLabel: tableLabel,
+      manualColSpec: manualColSpec,
     });
   }
 
   // create the printable string
   // according to column features and row features of the table
-  return create_string({matrix: matrix, colFeats: colFeats, rowFeats: rowFeats, tableType: tableType, tableCaption: tableCaption, range: range });
+  return create_string({
+    range: range,
+    matrix: matrix,
+    colFeats: colFeats,
+    tableType: tableType,
+    tableCaption: tableCaption,
+    tableLabel: tableLabel,
+    rowFeats: rowFeats,
+  });
 }

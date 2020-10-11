@@ -8,6 +8,7 @@ function create_manual_string(spec) {
   var manualColSpec = spec.manualColSpec;
   var tableType = spec.tableType;
   var tableCaption = spec.tableCaption;
+  var tableLabel = spec.tableLabel;
   var counterstart = 0;
   var output = '';
   var colAlign = '';
@@ -19,8 +20,17 @@ function create_manual_string(spec) {
   } else {
     colAlign = colFeats;
   }
+
   spec.colFeats = colAlign;
-  var prepost = setTablePrePost({colFeats:columns_align(colFeats),matrix:matrix,tableType:tableType, tableCaption: tableCaption, range:spec.range});
+  var prepost = setTablePrePost({
+    colFeats: columns_align(colFeats),
+    range: range,
+    matrix: matrix,
+    tableType: tableType,
+    tableCaption: tableCaption,
+    tableLabel: tableLabel,
+  });
+
   counterstart = prepost.counterstart;
   output+=prepost.pre_table;
 

@@ -1,5 +1,9 @@
 function menuMakeTable(){
-  singleExport({groupSettingsGetter: 'getTabs',defaultUserSettingsArrayGetter:'getTabUserDefault',defaultSettingsArrayGetter: 'getTabDefault',strGenerator: range_to_string});
+  singleExport({
+    groupSettingsGetter: 'getTabs',
+    defaultUserSettingsArrayGetter:'getTabUserDefault',
+    defaultSettingsArrayGetter: 'getTabDefault',
+    strGenerator: range_to_string});
 }
 
 function menuExportAllTabs(){
@@ -8,7 +12,11 @@ function menuExportAllTabs(){
 }
 
 function menuExportData(){
-  singleExport({groupSettingsGetter: 'getData',defaultUserSettingsArrayGetter:'getDatumUserDefault',defaultSettingsArrayGetter: 'getDatumDefault',strGenerator: datumToStr});
+  singleExport({
+    groupSettingsGetter: 'getData',
+    defaultUserSettingsArrayGetter:'getDatumUserDefault',
+    defaultSettingsArrayGetter: 'getDatumDefault',
+    strGenerator: datumToStr});
 }
 function menuExportAllData(){
   var settings = updateSettingsSheet();
@@ -29,9 +37,9 @@ function getFullA1Notation(range){
 function singleExport(obj){
   var ss = SpreadsheetApp.getActiveSpreadsheet(),
   settingsSh = ss.getSheetByName(getDevSettings().getSettingsSheetName());
-  
+
   var activeRange = ss.getActiveSheet().getActiveRange();
-  
+
   if(settingsSh !== null){
     var settings = updateSettingsSheet();
     if(getGeneralSettingsFromArray(settings.getGeneral()).getUseSettingForSingleExport() === true){
@@ -55,15 +63,17 @@ function singleExport(obj){
       if(settingsArray === undefined) settingsArray = settings[obj.defaultUserSettingsArrayGetter]();
     }
   }
-  try{ 
+  try{
     if(settingsArray === undefined){
-      alertExportToFile(obj.strGenerator({range: activeRange,
-                        settingsArray: getDefaultSettings()[obj.defaultSettingsArrayGetter]()}));
+      alertExportToFile(obj.strGenerator({
+        range: activeRange,
+        settingsArray: getDefaultSettings()[obj.defaultSettingsArrayGetter]()}));
     }else if(settingsArray[0] === "default"){
-      alertExportToFile(obj.strGenerator({range: activeRange,
-                        settingsArray: settingsArray}));
+      alertExportToFile(obj.strGenerator({
+        range: activeRange,
+        settingsArray: settingsArray}));
     }else{
-      exportGroup([settingsArray],obj.strGenerator);
+      exportGroup([settingsArray], obj.strGenerator);
     }
   }catch(e){
      // Avoid getting an error in Google Project's Console when the user leaves the alert opened
