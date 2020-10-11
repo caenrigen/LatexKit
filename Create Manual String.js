@@ -19,12 +19,11 @@ function create_manual_string(spec) {
     // not empty
     colAlign = manualColSpec;
   } else {
-    colAlign = colFeats;
-  }
-  spec.colFeats = colAlign;
+    colAlign = columns_align(colFeats);
+  };
 
   var prepost = setTablePrePost({
-    colFeats: columns_align(colFeats),
+    colFeats: colAlign,
     range: range,
     matrix: matrix,
     tableType: tableType,
@@ -37,9 +36,9 @@ function create_manual_string(spec) {
   output+=prepost.pre_table;
 
   var i,j;
-  for(i=0;i<matrix.length;i++)
+  for(i=counterstart;i<matrix.length;i++)
   {
-    for(j=counterstart;j<matrix[i].length;j++)
+    for(j=0;j<matrix[i].length;j++)
     {
      output+=matrix[i][j].pvalue;
     }

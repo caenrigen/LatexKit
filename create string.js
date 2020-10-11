@@ -18,6 +18,7 @@ function create_string(spec) {
     tableLabel: tableLabel,
     tablePlacementSpecifier: tablePlacementSpecifier,
     range: spec.range});
+
   counterstart = prepost.counterstart;
   output+=prepost.pre_table;
 

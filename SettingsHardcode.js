@@ -125,7 +125,7 @@ Manual\n\n[THE NAMED RANGE MUST NOT INCLUDE ANY CELLS ON LINE 1 OF THE SHEET!]\n
 
 'Aditional option for each template choosen. Change this value to some integer X to customize the template:\n\n\
 Horizon & Barcode: Add an additional horizontal line below row X\n\n\
-Grid: Set X to 0 to remove the outer border',
+Grid: Set X to 0 to remove the outer borders',
 
 'Setting this field to TRUE includes a small space below and above each horizontal line, useful when you have exponents or indices in your table, as this tend to overlap with the lines.',
 
@@ -137,7 +137,8 @@ tabular\n\
 tabularx\n\
 longtable\n\
 table/tabular\n\
-table/tabularx\n\ ',
+table/tabularx\n\n\
+longtable features: the first cell on the 2 rows following the Named Range can be used to replace \"Continued on/from ...\"',
 
 'Set caption/label for longtable and table\n\
 Set to \'default\' to use the sheet Name as the caption for your table \n\
@@ -169,13 +170,13 @@ E.g. [], [!h], [htb]'
 };
 
 var getNextPageContinue =  function(continue_next){
-  if (continue_next.length == 0 ){
+  if (continue_next.length === 0 ){
     continue_next = "Continued on next page";
   }
   return "{r}{\\textit{"+continue_next+"}} \\\\ \n";
 };
 var getPreviousPageContinue =  function(continue_previous){
-  if (continue_previous.length == 0 ){
+  if (continue_previous.length === 0 ){
     continue_previous = "Continued from previous page"
   }
   return "\{\\tablename\ \\thetable\ -- \\textit{"+continue_previous+"}} \\\\ \n";

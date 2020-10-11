@@ -56,7 +56,7 @@ function create_tableFeats(spec) {
 
   //***************** TABLE CAPTION FEATURES  *************************
   var tableCaption = sets.getCaption();
-  if (tableCaption == "default"){
+  if (tableCaption === "default"){
     tableCaption = range.getSheet().getName();
   };
 
@@ -106,7 +106,7 @@ function create_tableFeats(spec) {
     rowFeats[0].set_hline();
     rowFeats[numRows].set_hline();
 
-    if(options !== false  && options <numRows && options>0)
+    if(options !== false  && options < numRows && options > 0)
        rowFeats[options].set_hline();
 
     if(sets.getBigstrut() === true)
@@ -126,11 +126,14 @@ function create_tableFeats(spec) {
   // ********** BARCODE TEMPLATE *************
   if(template === 'barcode'){
 
-    for(k=1 ; k<numColumns ; k++)
-      colFeats[k].set_lbar();
+    colFeats[0].set_lbar();
+    for(k=0; k<numColumns; k++)
+      colFeats[k].set_rbar();
 
-    if(options !== false  && options <numRows && options>0)
-      rowFeats[options].set_hline();
+    if(options === 1){
+      colFeats[colFeats.length - 1].reset_rbar();
+      colFeats[0].reset_lbar();
+    };
 
     if(sets.getBigstrut() === true)
       set_bigstrut(rowFeats);
@@ -182,6 +185,7 @@ function create_tableFeats(spec) {
     };
   }
 
+  // ********* MANUAL TEMPLATE ******************
   if(template === 'manual'){
     var manualColSpec = '';
     try{
@@ -190,8 +194,19 @@ function create_tableFeats(spec) {
       // In case the table is at the top and there is no cell above
       manualColSpec = '';
     }
-    return {manual: true, rowFeats: rowFeats, colFeats: colFeats, manualColSpec: manualColSpec};
+    return {
+      manual: true,
+      rowFeats: rowFeats,
+      colFeats: colFeats,
+      tableType: tableType,
+      tableCaption: tableCaption,
+      tableLabel: tableLabel,
+      tablePlacementSpecifier: tablePlacementSpecifier,
+      manualColSpec: manualColSpec,
+    };
   }
+  // ********* MANUAL TEMPLATE ******************
+
   // If the code reached this point no template matches were found, warn the user
   SpreadsheetApp.getUi().alert('Warning:\nInvalid Template for NamedRange '+sets.getRangeName());
   return {
