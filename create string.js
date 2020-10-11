@@ -6,6 +6,7 @@ function create_string(spec) {
   var tableType = spec.tableType;
   var tableCaption = spec.tableCaption;
   var tableLabel = spec.tableLabel;
+  var tablePlacementSpecifier = spec.tablePlacementSpecifier;
   var counterstart = 0;
   var output = '';
 
@@ -15,6 +16,7 @@ function create_string(spec) {
     tableType: tableType,
     tableCaption: tableCaption,
     tableLabel: tableLabel,
+    tablePlacementSpecifier: tablePlacementSpecifier,
     range: spec.range});
   counterstart = prepost.counterstart;
   output+=prepost.pre_table;

@@ -32,11 +32,11 @@ var getDefaultSettings = function(){
     ];},
     getTabsHeader : function(){return [
     ['TABS'],
-      ['Range Name:','Folder:','Extension:','Template:','Option:','Bigstrut:','Escape characters:','Table Type','Caption']
+      ['Range Name:','Folder:','Extension:','Template:','Option:','Bigstrut:','Escape characters:','Table Type','Caption', 'Placement Specifier']
     ];},
     // Note that this default is not an array of arrays
     // This makes it more convenient for most calls
-    getTabDefault : function(){return ['default','./tabs','.tex',false,false,false,'','tabular','default'];},
+    getTabDefault : function(){return ['default','./tabs','.tex',false,false,false,'','tabular','default', '[]'];},
     getDataHeader : function(){return[
     ['DATA'],
       ['Range Name:','Folder:','Extension:','Full Precision:','Separator:','Column Swap:']
@@ -59,13 +59,14 @@ var getGeneralSettingsFromArray = function (genSettings){
 };
 var getTabSettingsFromArray = function (tabSettings){
   return {
-    getRangeName:   function(){return tabSettings[0];},
-    getTemplate:    function(){return tabSettings[3];},
-    getOptions:     function(){return tabSettings[4];},
-    getBigstrut:    function(){return tabSettings[5];},
-    getEscapeChars: function(){return tabSettings[6];},
-    getTableType:   function(){return tabSettings[7];},
-    getCaption:     function(){return tabSettings[8];}
+    getRangeName:          function(){return tabSettings[0];},
+    getTemplate:           function(){return tabSettings[3];},
+    getOptions:            function(){return tabSettings[4];},
+    getBigstrut:           function(){return tabSettings[5];},
+    getEscapeChars:        function(){return tabSettings[6];},
+    getTableType:          function(){return tabSettings[7];},
+    getCaption:            function(){return tabSettings[8];},
+    getPlacementSpecifier: function(){return tabSettings[9];},
   };
 };
 var getDatumSettingsFromArray = function (datumSettings){
@@ -142,7 +143,10 @@ table/tabularx\n\ ',
 Set to \'default\' to use the sheet Name as the caption for your table \n\
 or \'your custom table caption title\' \n\
 or simply leave this field empty for no caption \n\
-'
+',
+'Table float placement specifier\n\
+Only relevant for \"table/tabular\" and \"table/tabularx\" table types.\n\
+E.g. [], [!h], [htb]'
       ]
     ];},
     getTabDefaultNotes : function(){return [
@@ -179,7 +183,7 @@ var getPreviousPageContinue =  function(continue_previous){
 
 var getTableTypeError = function(tableType){
   if (tableType){
-    return [[tableType+' is not a valid Table Type.\nUse : tabular, tabularx or longtable.']];
+    return [[tableType +' is not a valid Table Type.\nUse : tabular, tabularx or longtable.']];
   }else{
     return [['Table Type not defined.\nUse : tabular, tabularx or longtable.']];
   }

@@ -9,6 +9,7 @@ function create_manual_string(spec) {
   var tableType = spec.tableType;
   var tableCaption = spec.tableCaption;
   var tableLabel = spec.tableLabel;
+  var tablePlacementSpecifier = spec.tablePlacementSpecifier;
   var counterstart = 0;
   var output = '';
   var colAlign = '';
@@ -20,8 +21,8 @@ function create_manual_string(spec) {
   } else {
     colAlign = colFeats;
   }
-
   spec.colFeats = colAlign;
+
   var prepost = setTablePrePost({
     colFeats: columns_align(colFeats),
     range: range,
@@ -29,6 +30,7 @@ function create_manual_string(spec) {
     tableType: tableType,
     tableCaption: tableCaption,
     tableLabel: tableLabel,
+    tablePlacementSpecifier: tablePlacementSpecifier,
   });
 
   counterstart = prepost.counterstart;

@@ -58,15 +58,16 @@ function create_tableFeats(spec) {
   var tableCaption = sets.getCaption();
   if (tableCaption == "default"){
     tableCaption = range.getSheet().getName();
-  }
+  };
 
-  rageNameSplit = rangeName.split(".")
+  var rageNameSplit = rangeName.split(".");
   var tableLabel = undefined;
   if (rageNameSplit[rageNameSplit.length - 1] !== "" && rageNameSplit.length > 1){
     tableLabel = rageNameSplit[0];
   } else {
     tableLabel = tableLabel;
-  }
+  };
+  var tablePlacementSpecifier = sets.getPlacementSpecifier();
   // *************** END OF TABLE CAPTION FEATURES ********************
 
   // ***************** TEMPLATE CONFIGURATION *************************
@@ -80,6 +81,7 @@ function create_tableFeats(spec) {
       tableType: tableType,
       tableCaption: tableCaption,
       tableLabel: tableLabel,
+      tablePlacementSpecifier: tablePlacementSpecifier,
     };
 
   if(options !== false && typeof options != 'number')
@@ -93,6 +95,7 @@ function create_tableFeats(spec) {
       tableType: tableType,
       tableCaption: tableCaption,
       tableLabel: tableLabel,
+      tablePlacementSpecifier: tablePlacementSpecifier,
     };
   }
 
@@ -115,6 +118,7 @@ function create_tableFeats(spec) {
       tableType: tableType,
       tableCaption: tableCaption,
       tableLabel: tableLabel,
+      tablePlacementSpecifier: tablePlacementSpecifier,
     };
   }
   // ********** END OF HORIZON ***************
@@ -137,6 +141,7 @@ function create_tableFeats(spec) {
       tableType: tableType,
       tableCaption: tableCaption,
       tableLabel: tableLabel,
+      tablePlacementSpecifier: tablePlacementSpecifier,
     };
   }
   // ******** END OF BARCODE ******************
@@ -173,6 +178,7 @@ function create_tableFeats(spec) {
       tableType: tableType,
       tableCaption: tableCaption,
       tableLabel: tableLabel,
+      tablePlacementSpecifier: tablePlacementSpecifier,
     };
   }
 
@@ -194,6 +200,7 @@ function create_tableFeats(spec) {
     tableType: tableType,
     tableCaption: tableCaption,
     tableLabel: tableLabel,
+    tablePlacementSpecifier: tablePlacementSpecifier,
   };
 }
 

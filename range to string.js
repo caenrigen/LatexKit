@@ -13,6 +13,7 @@ function range_to_string(spec){
   var tableType = tabFeats.tableType;
   var tableCaption = tabFeats.tableCaption;
   var tableLabel = tabFeats.tableLabel;
+  var tablePlacementSpecifier = tabFeats.tablePlacementSpecifier;
 
   // Create a 2D array of Cell obj.
   // each Cell obj. contains properties:
@@ -47,6 +48,7 @@ function range_to_string(spec){
       tableType: tableType,
       tableCaption: tableCaption,
       tableLabel: tableLabel,
+      tablePlacementSpecifier: tablePlacementSpecifier,
       manualColSpec: manualColSpec,
     });
   }
@@ -60,6 +62,7 @@ function range_to_string(spec){
     tableType: tableType,
     tableCaption: tableCaption,
     tableLabel: tableLabel,
+    tablePlacementSpecifier: tablePlacementSpecifier,
     rowFeats: rowFeats,
   });
 }

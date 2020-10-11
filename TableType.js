@@ -5,6 +5,7 @@ function setTablePrePost(spec){
   var range = spec.range;
   var tableCaption = spec.tableCaption;
   var tableLabel = spec.tableLabel;
+  var tablePlacementSpecifier = spec.tablePlacementSpecifier;
   var pre_table = '';
   var post_table = '';
   var counterstart = 0;
@@ -19,8 +20,8 @@ function setTablePrePost(spec){
     pre_table += "\\begin{longtable}";
     pre_table += "{" + colFeats + "}\r\n";
     if(tableCaption){
-      pre_table += "\\caption{"+tableCaption+"}\\\\ \\hline\r\n";
-      pre_table += "\\label{tab:"+tableLabel+"}\r\n";
+      pre_table += "\\caption{" + tableCaption + "}\\\\ \\hline\r\n";
+      pre_table += "\\label{tab:" + tableLabel + "}\r\n";
     }
     for(c=0;c<matrix[0].length;c++)
     {
@@ -58,32 +59,36 @@ function setTablePrePost(spec){
     post_table += "\\end{tabularx}\r\n";
   }
   else if (tableType=="table/tabular"){
-    pre_table += "\\begin{table}[H]\r\n";
+    pre_table += "\\begin{table}" + tablePlacementSpecifier + "\r\n";
     pre_table += "\\centering\r\n";
     pre_table += "\\begin{tabular}";
     pre_table += "{" + colFeats + "}\r\n";
     post_table+= "\\end{tabular}\r\n";
     if(tableCaption){
-      post_table += "\\caption{"+tableCaption+"}\r\n";
-      post_table += "\\label{tab:"+tableLabel+"}\r\n";
+      post_table += "\\caption{" + tableCaption + "}\r\n";
+      post_table += "\\label{tab:" + tableLabel + "}\r\n";
     }
     post_table+= "\\end{table}\r\n";
   }
   else if (tableType=="table/tabularx"){
-    pre_table += "\\begin{table}[H]\r\n";
+    pre_table += "\\begin{table}" + tablePlacementSpecifier + "\r\n";
     pre_table += "\\centering\r\n";
     pre_table += "\\begin{tabularx}";
     pre_table += "{\\textwidth}";
     pre_table += "{" + colFeats + "}\r\n";
     post_table += "\\end{tabularx}\r\n";
     if(tableCaption){
-      post_table += "\\caption{"+tableCaption+"}\r\n";
-      post_table += "\\label{tab:"+tableLabel+"}\r\n";
+      post_table += "\\caption{" + tableCaption + "}\r\n";
+      post_table += "\\label{tab:" + tableLabel + "}\r\n";
     }
     post_table+= "\\end{table}\r\n";
   }
   else{
     getTableTypeError(tableType);
   }
-  return {pre_table: pre_table, post_table: post_table,counterstart: counterstart};
+  return {
+    pre_table: pre_table,
+    post_table: post_table,
+    counterstart: counterstart
+  };
 }
