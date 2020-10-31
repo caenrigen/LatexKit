@@ -35,6 +35,9 @@ function create_manual_string(spec) {
   counterstart = prepost.counterstart;
   output+=prepost.pre_table;
 
+  // Add user specified commands (e.g. \hline) before the tabular rows
+  output += new_range_value[0][0] + '\r\n';
+
   var i,j;
   for(i=counterstart;i<matrix.length;i++)
   {
