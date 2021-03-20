@@ -17,7 +17,7 @@ function getHashedEmail(){
 
 function insertGABase(obj) {
   // To avoid having to always include this
-  var appSettings = getGaSettings();
+  var appSettings = getGASettings();
   var isDev = appSettings["devMode"];
   if(isDev){
     var ip = appSettings["GA_UIP_DEV"];
@@ -52,7 +52,7 @@ GAInitDone = false;
 function initGA(){
   if(onOpenAuthMode !== ScriptApp.AuthMode.NONE && GAInitDone === false){
     // Properties service and URLFetchApp can only run when not in AuthMode.NONE
-    var TID = getGaSettings()["GA_TID"];
+    var TID = getGASettings()["GA_TID"];
     userEmail = Session.getEffectiveUser().getEmail();
     hashedEmail = getHashedEmail(userEmail);
     GATrack.init(TID, hashedEmail);
