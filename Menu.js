@@ -1,5 +1,6 @@
 //  This function runs when a spreadsheet file is opened
 //  Adds options to menu, if the code is inside an add-on it will add the options in a submenu  in Add-ons
+onOpenAuthMode = null;
 
 function onOpen(e){
   var ui = SpreadsheetApp.getUi();
@@ -18,7 +19,9 @@ function onOpen(e){
   .addItem(menuLabels['feedbackForm'], 'showFeedbackDialog')
   .addItem(menuLabels['donate'], 'showPayPalDonations')
   .addToUi();
-
+  // GA will only work after authentication
+  // it needs to also be called in each menu function!
+  onOpenAuthMode = e.authMode; // Save as global var to accessible from `initGA`
   initGA();
 }
 
