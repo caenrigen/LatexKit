@@ -1,26 +1,63 @@
 function menuMakeTable(){
-  singleExport({
-    groupSettingsGetter: 'getTabs',
-    defaultUserSettingsArrayGetter:'getTabUserDefault',
-    defaultSettingsArrayGetter: 'getTabDefault',
-    strGenerator: range_to_string});
+  addGAMenuClick({
+    el: 'menuMakeTable',
+  });
+  try{
+    initGA();
+    singleExport({
+      groupSettingsGetter: 'getTabs',
+      defaultUserSettingsArrayGetter:'getTabUserDefault',
+      defaultSettingsArrayGetter: 'getTabDefault',
+      strGenerator: range_to_string});
+  }
+  catch(error) {
+    myPrint(error);
+  }
 }
 
 function menuExportAllTabs(){
-  var settings = updateSettingsSheet();
-  exportGroup(settings.getTabs(),range_to_string);
+  addGAMenuClick({
+    el: 'menuExportAllTabs',
+  });
+  try{
+    initGA();
+    var settings = updateSettingsSheet();
+    exportGroup(settings.getTabs(),range_to_string);
+  }
+  catch(error) {
+    myPrint(error);
+  }
 }
 
 function menuExportData(){
-  singleExport({
-    groupSettingsGetter: 'getData',
-    defaultUserSettingsArrayGetter:'getDatumUserDefault',
-    defaultSettingsArrayGetter: 'getDatumDefault',
-    strGenerator: datumToStr});
+  addGAMenuClick({
+    el: 'menuExportData',
+  });
+  try{
+    initGA();
+    singleExport({
+      groupSettingsGetter: 'getData',
+      defaultUserSettingsArrayGetter:'getDatumUserDefault',
+      defaultSettingsArrayGetter: 'getDatumDefault',
+      strGenerator: datumToStr});
+  }
+  catch(error) {
+    myPrint(error);
+  }
 }
+
 function menuExportAllData(){
-  var settings = updateSettingsSheet();
-  exportGroup(settings.getData(),datumToStr);
+  addGAMenuClick({
+    el: 'menuExportAllData',
+  });
+  try{
+    initGA();
+    var settings = updateSettingsSheet();
+    exportGroup(settings.getData(),datumToStr);
+  }
+  catch(error) {
+    myPrint(error);
+  }
 }
 
 function alertExportToFile(str)

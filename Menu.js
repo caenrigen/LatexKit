@@ -10,7 +10,7 @@ function onOpen(e){
   .addItem(menuLabels['allTables'], 'menuExportAllTabs')
   .addSeparator()
   .addItem(menuLabels['showSettings'], 'menuShowSettingsSheet')
-  .addItem(menuLabels['updateSettings'], 'updateSettingsSheet')
+  .addItem(menuLabels['updateSettings'], 'menuUpdatesettingSheet')
   .addSeparator()
   .addItem(menuLabels['singleData'], 'menuExportData')
   .addItem(menuLabels['allData'], 'menuExportAllData')
@@ -18,6 +18,8 @@ function onOpen(e){
   .addItem(menuLabels['feedbackForm'], 'showFeedbackDialog')
   .addItem(menuLabels['donate'], 'showPayPalDonations')
   .addToUi();
+
+  initGA();
 }
 
 function onInstall(e){

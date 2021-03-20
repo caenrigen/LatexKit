@@ -5,10 +5,10 @@ String.prototype.insert = function (pos , insertion)
   //else
   if(pos<0)
     return (this.substring(0,this.length+pos) + insertion + this.substring(this.length+pos,this.length));
-  
+
   if(pos>0)
     return (this.substring(0,pos) + insertion + this.substring(pos,this.length));
-} 	
+}
 
 Array.prototype.matrix = function (rowNum, colNum, initial) {
   var a, i, j, mat = [];
@@ -36,4 +36,9 @@ Array.prototype.rectangulateMatrix = function (content){
     }
   }
   return this;
+}
+
+function myPrint(arg){
+  Logger.log(arg);
+  console.log(arg);
 }

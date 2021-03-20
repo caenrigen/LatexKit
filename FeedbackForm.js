@@ -1,12 +1,21 @@
 function showFeedbackDialog(){
+  addGAMenuClick({
+    el: 'showFeedbackDialog',
+  });
+  try{
+    initGA();
     var htmlOutput = HtmlService.createHtmlOutput(makeFormHTMLtext())
-    .setWidth(550)
-    .setHeight(400);
-  try {
-    SpreadsheetApp.getUi().showModelessDialog(htmlOutput, 'We love to hear from you!');
-  } catch(e){
-  // Avoid getting an error in Google Project's Console when the user leaves the alert opened
-  e.name==="Exception" ? console.info(e) : function(){throw(e);}();
+      .setWidth(550)
+      .setHeight(400);
+    try {
+      SpreadsheetApp.getUi().showModelessDialog(htmlOutput, 'We love to hear from you!');
+    } catch(e){
+    // Avoid getting an error in Google Project's Console when the user leaves the alert opened
+    e.name==="Exception" ? console.info(e) : function(){throw(e);}();
+    }
+  }
+  catch(error) {
+    myPrint(error);
   }
 }
 

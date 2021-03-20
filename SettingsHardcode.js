@@ -1,3 +1,18 @@
+function getGASettings(){
+  return {
+    devMode: true,
+    GA_TID: 'UA-192641531-1',  // victor.negirneac@gmail.com account
+    GA_UIP_DEV: '192.0.2.77',
+    GA_UIP: '192.0.2.99',
+    // Just a default User Agent to make hits count and be visible when
+    // the box "Exclude all hits from known bots and spiders" is enabled
+    // Would be great to use a personalized one but Google keeps track
+    // valid ones, would break is using for instance the Add-on version
+    GA_DEFAULT_UA: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 Safari/605.1.15',
+  }
+}
+
+
 var getDevSettings = function(){
   return {
     getAppName:           function(){return 'LatexKit'},

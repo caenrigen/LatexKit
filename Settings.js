@@ -44,6 +44,19 @@ function getSettingsFromSheet(settingsSh){
          };
 }
 
+function menuUpdatesettingSheet(){
+  addGAMenuClick({
+    el: 'menuUpdatesettingSheet',
+  });
+  try{
+    initGA();
+    updateSettingsSheet();
+  }
+  catch(error) {
+    myPrint(error);
+  }
+}
+
 function updateSettingsSheet(){
   var ss = SpreadsheetApp.getActiveSpreadsheet();
 //  var ss = SpreadsheetApp.openById('1e-84AImIzUWAZWGL0p98rZHv9OLHcbMXukMgLnGZCuA');
@@ -138,7 +151,7 @@ It was renamed and a new one created. You may want to copy-paste some of your ta
 //  setValues back to the settings sheet
   settingsSh.getDataRange().clearContent();
   settingsSh.getRange(1, 1,outputRowNum ,outputColNum).setValues(output);
-//  Retunr in the same fashion as getSettingsFromSheet()
+//  Return in the same fashion as getSettingsFromSheet()
   return {getGeneral:          function(){return general;},
           getTabUserDefault:   function(){return tabDef;},
           getTabs:             function(){return tabs;},
@@ -210,17 +223,26 @@ function exportGroup(groupSettings, strGenerator){
 }
 
 function menuShowSettingsSheet(){
-  var settingsSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(getDevSettings().getSettingsSheetName());
-  if(settingsSheet === null){
-    var ui = SpreadsheetApp.getUi();
-    var response = ui.alert('Settings sheet was not found! Would you like to create it?','Tips:\nThere are notes in the settings \
-sheet that explain how to use it. Hold the mouse over the cells that have a black triangle in the corner to see them!\nThe default values change the behaviour of the menu for \"Make Tabular\" and \"Export Data\"!', ui.ButtonSet.YES_NO);
-    if (response === ui.Button.YES){
-      updateSettingsSheet();  // Create and update setting sheet
-      menuShowSettingsSheet();  // Run this function again in order to activate the sheet
+  addGAMenuClick({
+    el: 'menuShowSettingsSheet',
+  });
+  try{
+    initGA();
+    var settingsSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(getDevSettings().getSettingsSheetName());
+    if(settingsSheet === null){
+      var ui = SpreadsheetApp.getUi();
+      var response = ui.alert('Settings sheet was not found! Would you like to create it?','Tips:\nThere are notes in the settings \
+  sheet that explain how to use it. Hold the mouse over the cells that have a black triangle in the corner to see them!\nThe default values change the behaviour of the menu for \"Make Tabular\" and \"Export Data\"!', ui.ButtonSet.YES_NO);
+      if (response === ui.Button.YES){
+        updateSettingsSheet();  // Create and update setting sheet
+        menuShowSettingsSheet();  // Run this function again in order to activate the sheet
+      }
     }
+    else{
+      settingsSheet.activate();
+    };
   }
-  else{
-    settingsSheet.activate();
-  };
+  catch(error) {
+    myPrint(error);
+  }
 }
