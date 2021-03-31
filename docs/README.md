@@ -24,7 +24,7 @@ The source code and the corresponding license is available on the [LatexKit proj
 
 ## Changelog
 
-Important changes in the Add-on functionalities are reported on the [changelog page].
+Important changes in the Add-on functionalities are reported in the [changelog page].
 
 ## Contact
 
