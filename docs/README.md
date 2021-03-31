@@ -28,7 +28,7 @@ Important changes in the Add-on functionalities are reported on the [changelog p
 
 ## Contact
 
-
+Feel free to drop us a line at `latexkit{the usual email symbol}caenrigen.tech`. We would love to hear from you!
 
 ## Privacy Policy and Terms of Service
 By using LatexKit you agree with the [Terms of Service] and the [Privacy Policy].
