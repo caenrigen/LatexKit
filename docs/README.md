@@ -1,8 +1,12 @@
+<p align="center">
+  <img width="180" height="180" src="Logo.png">
+</p>
+
+**Last Update:** 2021-03-21
+
 # LatexKit
 
 **Bridging the gap between LaTeX tables and Google Sheets**
-
-**Last Update:** 2021-03-21
 
 LatexKit is a Google Sheets Add-on that converts tables to [LaTeX] typesetting format with dedicated features for academics & engineers, and much more!
 
