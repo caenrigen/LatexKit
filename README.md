@@ -1,11 +1,6 @@
-# LatexKit
+# LatexKit for developers
 LatexKit is a Google Sheets Add-on.
-If you are just looking for latex table generation from Google Sheets, you can install it from the ~~[Google Sheets Add-on Store]~~ [G Suite Marketplace] or visit our [Facebook page].
-
-We hope to have here more information :) in the future. We are new to GitHub and Google Development Tools, therefore it might take some time... but any feedback is already welcome :D
-
-## Privacy Policy and Terms of Service
-By using LatexKit you agree with the [Terms of Service] and the [Privacy Policy]. Still sceptical? Fork us and run it yourself!
+If you are just looking for latex table generation from Google Sheets, you can install it from the [Google Workspace Marketplace].
 
 ## How to use this code yourself
 There are two main reasons for you to want this:
@@ -22,23 +17,26 @@ As you will probably discover, Google IDE is not very useful when it comes to ve
 * [python-gas-cli] - python (not tested)
 
 By the time you set up one of those tools you should be ready (and know how) to run your own copy of LatexKit. Have fun!
-This instructions may not be very clear, if you have any dificulties contact us, we will be happy to help you!
+This instructions may not be very clear, if you have any difficulties contact us, we will be happy to help you!
 
 ## Nice things to develop someday
 * Apply Validation rules on Settings Sheet for a more user friendly UI and less errors
-* Create URLs for [overleaf automatic file upload and realtime update] 
+* Create URLs for [overleaf automatic file upload and realtime update]
 * Automatic and manual columns align
-* Automatic table configuration for siunitx latex package
+* Automatic table configuration for `siunitx` latex package
 * Data validation for the LatexKitSettings sheet
 * Automatic table borders when folks from google give us a getBorder method or [working it around] with the Sheets API v4.
 PS Help us reinforce the need of the getBorder method by leaving a comment in the [issue tracker].
-* Automatic line breaks in cells using \makecell\{\}
+* Automatic line breaks in cells using `\makecell{}`
 
 ## Useful resources
 * [Advanced Development Process with Apps Script]
 
+## Privacy Policy and Terms of Service
+By using LatexKit you agree with the [Terms of Service] and the [Privacy Policy].
+
 [Google Sheets Add-on Store]: https://chrome.google.com/webstore/detail/latexkit/piadpbgaacpbaicjilhfebbfgofomiic?utm_source=permalink
-[G Suite Marketplace]: https://gsuite.google.com/marketplace/app/latexkit/716178627426
+[Google Workspace Marketplace]: https://gsuite.google.com/marketplace/app/latexkit/716178627426
 [Facebook page]: https://www.facebook.com/latexkit/
 [gas]: https://www.npmjs.com/package/google-apps-script
 [gapps]: https://www.npmjs.com/package/node-google-apps-script
