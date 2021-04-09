@@ -13,6 +13,7 @@ function menuMakeTable(){
   catch(error) {
     myPrint(error);
   }
+  GATrack.flushGAQueue();
 }
 
 function menuExportAllTabs(){
@@ -27,6 +28,7 @@ function menuExportAllTabs(){
   catch(error) {
     myPrint(error);
   }
+  GATrack.flushGAQueue();
 }
 
 function menuExportData(){
@@ -44,6 +46,7 @@ function menuExportData(){
   catch(error) {
     myPrint(error);
   }
+  GATrack.flushGAQueue();
 }
 
 function menuExportAllData(){
@@ -58,6 +61,7 @@ function menuExportAllData(){
   catch(error) {
     myPrint(error);
   }
+  GATrack.flushGAQueue();
 }
 
 function alertExportToFile(str)

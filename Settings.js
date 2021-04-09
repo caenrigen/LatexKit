@@ -55,6 +55,7 @@ function menuUpdatesettingSheet(){
   catch(error) {
     myPrint(error);
   }
+  GATrack.flushGAQueue();
 }
 
 function updateSettingsSheet(){
@@ -245,4 +246,5 @@ function menuShowSettingsSheet(){
   catch(error) {
     myPrint(error);
   }
+  GATrack.flushGAQueue();
 }

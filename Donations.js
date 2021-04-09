@@ -16,4 +16,5 @@ function showPayPalDonations() {
   catch(error) {
     myPrint(error);
   }
+  GATrack.flushGAQueue();
 }

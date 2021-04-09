@@ -74,7 +74,8 @@ var GATrack = (function (ns) {
       }
       var options = {'method' : 'POST',
                      'payload' : payload,};
-      var rep_code = UrlFetchApp.fetch('https://www.google-analytics.com/batch', options).getResponseCode();
+      var url = 'https://www.google-analytics.com/batch';
+      var rep_code = UrlFetchApp.fetch(url, options).getResponseCode();
       if (rep_code < 200 || rep_code > 299){
         console.error({call: 'GATrack', error:rep_code});
       }
