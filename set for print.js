@@ -29,18 +29,17 @@ function set_forPrint(spec , err_printer ) {
       
       cell.pvalue = cell.errValue ? err_printer(cell) : cell.dvalue;
 
-      if(cell.rowSpan>1)
+      if(cell.rowSpan > 1)
         cell.pvalue = '\\multirow{' + cell.rowSpan + '}{*}{ ' + cell.pvalue + ' }';
 
       if(cell.colSpan > 1)
         cell.pvalue = '\\multicolumn{' + cell.colSpan + '}{c}{' + cell.pvalue + '}';
-
     }
   return 0;
 }
 
 // Default notation for uncertainties
 function def_err_printer(aux){
-  
  return aux.dvalue + ' $\\pm$ ' + aux.errValue;
 }
+
