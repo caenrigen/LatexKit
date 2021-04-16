@@ -25,48 +25,21 @@ function set_forPrint(spec , err_printer ) {
     for(j=0;j<matrix[i].length;j++) 
     {
       // auxiliar reference to obj to ease the reading of the code
-      var aux=matrix[i][j];
+      var cell=matrix[i][j];
       
-      // This block treats row and column spans for elements which have uncertainties
-      if(aux.errValue)
-      {
-        if(aux.rowSpan>1)
-        {
-          aux.pvalue = '\\multirow{' + aux.rowSpan + '}{*}{ ' + err_printer(aux) + ' }';
-          if(aux.colSpan>1)
-            aux.pvalue = '\\multicolumn{' + aux.colSpan + '}{c}{' + aux.pvalue + '}';
-        }
-        
-        else if(aux.colSpan>1)
-          aux.pvalue = '\\multicolumn{' + aux.colSpan + '}{c}{ ' + err_printer(aux) + ' }';
-        
-        else
-          aux.pvalue = aux.dvalue + ' $\\pm$ ' + aux.errValue;
-      }
-      
-      // This block treats row and column spans for elements which DO NOT have uncertainties
-      else
-      {
-        if(aux.rowSpan>1)
-        {
-          aux.pvalue = '\\multirow{' + aux.rowSpan + '}{*}{ ' + aux.dvalue + ' }';
-          if(aux.colSpan>1)
-            aux.pvalue = '\\multicolumn{' + aux.colSpan + '}{c}{ ' + aux.pvalue + ' }';
-        }
-        
-        else if(aux.colSpan>1)
-          aux.pvalue = '\\multicolumn{' + aux.colSpan + '}{c}{ ' + aux.dvalue + ' }';
-        
-        else
-          aux.pvalue = aux.dvalue;
-      }
-      
+      cell.pvalue = cell.errValue ? err_printer(cell) : cell.dvalue;
+
+      if(cell.rowSpan > 1)
+        cell.pvalue = '\\multirow{' + cell.rowSpan + '}{*}{ ' + cell.pvalue + ' }';
+
+      if(cell.colSpan > 1)
+        cell.pvalue = '\\multicolumn{' + cell.colSpan + '}{c}{' + cell.pvalue + '}';
     }
   return 0;
 }
 
 // Default notation for uncertainties
 function def_err_printer(aux){
-  
  return aux.dvalue + ' $\\pm$ ' + aux.errValue;
 }
+
