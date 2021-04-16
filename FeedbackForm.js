@@ -17,6 +17,7 @@ function showFeedbackDialog(){
   catch(error) {
     myPrint(error);
   }
+  GATrack.flushGAQueue();
 }
 
 function makeFormHTMLtext(){
