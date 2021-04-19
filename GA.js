@@ -7,7 +7,7 @@ function getHashedEmail(){
   // based on https://stackoverflow.com/a/27933459
   userEmail = Session.getEffectiveUser().getEmail()
   var hashedEmail = Utilities.computeHmacSha256Signature(userEmail,
-    "The Legendaries").reduce(function(str, chr){
+    "LatexKit Rocks").reduce(function(str, chr){
       chr = (chr < 0 ? chr + 256 : chr).toString(16);
       return str + (chr.length == 1 ? '0' : '' ) + chr;
   },'');
